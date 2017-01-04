@@ -18,18 +18,14 @@
             android:text="HardWare Platform"
             android:textSize="25sp" />
 
-
     </RelativeLayout>
 
 
-    <GridView
-        android:id="@+id/gv_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <cn.pax.hardwaredemo.ui.CustomBtnView
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         android:layout_below="@id/rl_main_content_1"
-        android:numColumns="4">
-
-    </GridView>
+        android:background="#f1f1f1" />
 
 
 </RelativeLayout>
