@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!--去掉状态栏-->
+    <!-- 是否填充慢屏幕，引用android:windowNoTitle 的值 ?android:windowNoTitle，取决于android:windowNoTitle的值-->
+    <style name="theme_fullScreen" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">?android:windowNoTitle</item>
+    </style>
+
+
+    <!--透明主题 -->
+    <style name="Theme_Transparent" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
 </resources>
