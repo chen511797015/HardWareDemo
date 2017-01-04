@@ -26,9 +26,8 @@ public class CustomBtnView extends RelativeLayout {
 
     float radiusX = 0f;
     float radiusY = 0f;
-    float mRadius = 20f;
+    float mRadius = 0f;
     float mRadiusValue = 0f;
-
     int mAscent;
 
 
@@ -40,8 +39,12 @@ public class CustomBtnView extends RelativeLayout {
         super(context, attrs);
         this.mContext = context;
 
+        //解决自定义View不绘制问题
+        setWillNotDraw(false);
+
         //初始化画笔
         initPaint();
+
     }
 
 
@@ -108,12 +111,13 @@ public class CustomBtnView extends RelativeLayout {
 
     @Override
     protected void onDraw(final Canvas canvas) {
-        //super.onDraw(canvas);
-        //绘制一个红色的圆
+        super.onDraw(canvas);
+
         canvas.drawCircle(radiusX, radiusY, mRadius, mPaint);
 
-    }
+        Log.e(TAG, "onDraw: ");
 
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -136,7 +140,7 @@ public class CustomBtnView extends RelativeLayout {
             });
         }
 
-        return super.onTouchEvent(event);
+        return true;
     }
 
 }
