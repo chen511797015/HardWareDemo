@@ -13,7 +13,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/theme_fullScreen"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
