@@ -124,7 +124,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 index = 12;
                 break;
         }
-
         Log.e(TAG, "onClick: " + index);
     }
 
