@@ -63,7 +63,7 @@ public class CustomBtnView extends RelativeLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         //获取宽高
-        mRadiusValue = measureWidth(widthMeasureSpec) > measureHeight(heightMeasureSpec) ? measureWidth(widthMeasureSpec) : measureHeight(heightMeasureSpec);
+        mRadiusValue = measureWidth(widthMeasureSpec) + measureHeight(heightMeasureSpec);
 
     }
 
