@@ -56,7 +56,7 @@ public class UsbAdmin {
     public void openUsb() {
 
         if (mDevice == null) {
-            //TODO 获取USB设备
+            // 获取USB设备
             HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
             if (deviceList.size() == 0) {
                 Log.d(TAG, "没有检测到USB设备!");
@@ -65,11 +65,11 @@ public class UsbAdmin {
             Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
             while (deviceIterator.hasNext()) {
                 UsbDevice device = deviceIterator.next();
-                //TODO 请求设备权限
+                //请求设备权限
                 mUsbManager.requestPermission(device, mPermissionIntent);
             }
         } else {
-            //TODO 设置USB设备信息
+            //设置USB设备信息
             setDevice(mDevice);
 
         }
@@ -108,7 +108,7 @@ public class UsbAdmin {
 
             }
 
-            //TODO 建立USB连接
+            // 建立USB连接
             if (mDevice != null) {
                 UsbDeviceConnection connection = mUsbManager.openDevice(mDevice);
                 boolean claimInterface = connection.claimInterface(mUsbInterface, true);//申明接口
@@ -163,7 +163,7 @@ public class UsbAdmin {
                     UsbDevice device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
                     if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
                         if (device != null) {
-                            //TODO 获取权限成功,进行操作
+                            //获取权限成功,进行操作
                             setDevice(device);
                             Log.d(TAG, "获取USB权限成功!");
                         }

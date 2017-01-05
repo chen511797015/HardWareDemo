@@ -41,10 +41,12 @@ public class CashBoxActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //开钱箱
-                PrinterUtil.writeData(CashBoxActivity.this, PrinterConstants.OpenCashBox);
-                //mUsbAdmin.sendCommand(PrinterConstants.OpenCashBox);
-                //mUsbAdmin.sendCommand(new byte[]{0x1b, 0x23, 0x23, 0x53, 0x45, 0x4c, 0x46});//打印机信息
-
+                new Thread() {
+                    @Override
+                    public void run() {
+                        PrinterUtil.writeData(CashBoxActivity.this, PrinterConstants.OpenCashBox);
+                    }
+                }.start();
             }
         });
 
@@ -52,9 +54,6 @@ public class CashBoxActivity extends BaseActivity {
 
     @Override
     protected void init() {
-
-//        mUsbAdmin = new UsbAdmin(this);
-//        mUsbAdmin.openUsb();
 
     }
 }
