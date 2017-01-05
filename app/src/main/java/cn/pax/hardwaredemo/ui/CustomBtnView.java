@@ -115,8 +115,6 @@ public class CustomBtnView extends RelativeLayout {
 
         canvas.drawCircle(radiusX, radiusY, mRadius, mPaint);
 
-        Log.e(TAG, "onDraw: ");
-
     }
 
     @Override
@@ -140,7 +138,7 @@ public class CustomBtnView extends RelativeLayout {
             });
         }
 
-        return true;
+        return super.onTouchEvent(event);
     }
 
 }
