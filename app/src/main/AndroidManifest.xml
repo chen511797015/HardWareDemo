@@ -3,6 +3,9 @@
     package="cn.pax.hardwaredemo">
 
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+
     <application
         android:name=".HardWareApplication"
         android:allowBackup="true"
