@@ -1,16 +1,26 @@
 package cn.pax.hardwaredemo.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
+import cn.pax.hardwaredemo.tool.PrintThread;
 
 
 /**
  * 打印机测试
  */
 
-public class PrinterActivity extends BaseActivity {
+public class PrinterActivity extends BaseActivity implements View.OnClickListener {
+
+    private static final String TAG = "PrinterActivity";
+
+    Button btn_printer_bar_code;//打印条码
+    Button btn_printer_qr_code;//打印二维码
+    Button btn_printer_black_square;//打印黑色块
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +30,41 @@ public class PrinterActivity extends BaseActivity {
     @Override
     protected void findView() {
 
+        btn_printer_bar_code = (Button) findViewById(R.id.btn_printer_bar_code);
+        btn_printer_qr_code = (Button) findViewById(R.id.btn_printer_qr_code);
+        btn_printer_black_square = (Button) findViewById(R.id.btn_printer_black_square);
+
     }
 
     @Override
     protected void initEvent() {
-
+        btn_printer_bar_code.setOnClickListener(this);
+        btn_printer_qr_code.setOnClickListener(this);
+        btn_printer_black_square.setOnClickListener(this);
     }
 
     @Override
     protected void init() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_printer_bar_code:
+                Log.e(TAG, "打印条码");
+                new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
+                break;
+
+            case R.id.btn_printer_qr_code:
+                Log.e(TAG, "打印二维码 ");
+                new PrintThread(PrinterActivity.this, R.mipmap.pax_logo).run();
+                break;
+
+            case R.id.btn_printer_black_square:
+                Log.e(TAG, "打印黑色块");
+                new PrintThread(PrinterActivity.this, R.mipmap.black_sp).run();
+                break;
+        }
     }
 }

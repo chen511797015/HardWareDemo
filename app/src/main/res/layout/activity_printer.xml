@@ -46,7 +46,6 @@
             android:text="Printer Test"
             android:textSize="30sp" />
 
-
         <LinearLayout
             android:layout_width="@dimen/y300"
             android:layout_height="@dimen/x208"
@@ -135,6 +134,7 @@
 
 
                         <Button
+                            android:id="@+id/btn_printer_bar_code"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -154,6 +154,7 @@
 
 
                         <Button
+                            android:id="@+id/btn_printer_qr_code"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -173,6 +174,7 @@
 
 
                         <Button
+                            android:id="@+id/btn_printer_black_square"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
