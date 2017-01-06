@@ -15,18 +15,23 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden">
 
+
         </activity>
         <activity android:name=".activity.DeviceActivity" />
         <activity android:name=".activity.ScreenActivity" />
         <activity android:name=".activity.TouchActivity" />
-        <activity android:name=".activity.PrinterActivity" />
-        <activity android:name=".activity.ScannerActivity" />
-        <activity android:name=".activity.CashBoxActivity">
+        <activity android:name=".activity.PrinterActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".activity.ScannerActivity" />
+        <activity android:name=".activity.CashBoxActivity">
+
         </activity>
         <activity android:name=".activity.GenerationActivity" />
         <activity android:name=".activity.RouterActivity" />

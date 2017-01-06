@@ -49,7 +49,6 @@ public class UsbAdmin {
 
     }
 
-
     /**
      * 打开Usb设备
      */
@@ -73,6 +72,26 @@ public class UsbAdmin {
             setDevice(mDevice);
 
         }
+    }
+
+    /**
+     * 关闭USB连接
+     */
+    public void closeUsb() {
+        if (mConnection != null) {
+            mConnection = null;
+        }
+    }
+
+
+    /**
+     * 判断USB连接状态
+     */
+    public boolean getUsbStatus() {
+        if (mConnection != null)
+            return true;
+        else
+            return false;
     }
 
     /**

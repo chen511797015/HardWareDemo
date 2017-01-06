@@ -140,8 +140,12 @@ public class GenerateValueFiles {
     }
 
     public static void main(String[] args) {
+//        int baseW = 320;
+//        int baseH = 400;
+
         int baseW = 320;
         int baseH = 400;
+
         String addition = "";
         try {
             if (args.length >= 3) {
@@ -160,7 +164,6 @@ public class GenerateValueFiles {
             e.printStackTrace();
             System.exit(-1);
         }
-
         new GenerateValueFiles(baseW, baseH, addition).generate();
     }
 

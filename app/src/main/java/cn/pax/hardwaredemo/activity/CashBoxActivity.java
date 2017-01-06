@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -21,7 +22,7 @@ public class CashBoxActivity extends BaseActivity {
     private static final String TAG = "CashBoxActivity";
 
     Button btn_cash_box_open;// 打开钱箱
-    private UsbAdmin mUsbAdmin;
+    ImageView iv_cash_box_back;//返回
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class CashBoxActivity extends BaseActivity {
     protected void findView() {
 
         btn_cash_box_open = (Button) findViewById(R.id.btn_cash_box_open);
+        iv_cash_box_back = (ImageView) findViewById(R.id.iv_cash_box_back);
 
     }
 
@@ -50,10 +52,19 @@ public class CashBoxActivity extends BaseActivity {
             }
         });
 
+        iv_cash_box_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //finish();
+                onBackPressed();
+            }
+        });
+
     }
 
     @Override
     protected void init() {
 
     }
+
 }
