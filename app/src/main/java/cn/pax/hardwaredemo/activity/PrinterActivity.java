@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -21,6 +22,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
     Button btn_printer_bar_code;//打印条码
     Button btn_printer_qr_code;//打印二维码
     Button btn_printer_black_square;//打印黑色块
+    ImageView iv_printer_back;//返回
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
         btn_printer_bar_code = (Button) findViewById(R.id.btn_printer_bar_code);
         btn_printer_qr_code = (Button) findViewById(R.id.btn_printer_qr_code);
         btn_printer_black_square = (Button) findViewById(R.id.btn_printer_black_square);
+        iv_printer_back = (ImageView) findViewById(R.id.iv_printer_back);
 
     }
 
@@ -41,6 +44,14 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
         btn_printer_bar_code.setOnClickListener(this);
         btn_printer_qr_code.setOnClickListener(this);
         btn_printer_black_square.setOnClickListener(this);
+
+        //返回
+        iv_printer_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override

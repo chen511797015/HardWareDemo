@@ -111,8 +111,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080"></View>
+                android:layout_height="2dp"
+                android:background="#e1e1e1"></View>
 
             <!--条码打印,二维码打印,全黑打印-->
             <RelativeLayout
