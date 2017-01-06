@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.tool.PrintThread;
+import cn.pax.hardwaredemo.util.PrinterUtil;
+import cn.pax.hardwaredemo.util.ToastUtil;
+
+import static cn.pax.hardwaredemo.R.mipmap.pax_logo;
 
 
 /**
@@ -64,17 +68,26 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.btn_printer_bar_code:
                 Log.e(TAG, "打印条码");
-                new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
+                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
+                    new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
+                else
+                    ToastUtil.showToast("请检查打印机状态!");
                 break;
 
             case R.id.btn_printer_qr_code:
                 Log.e(TAG, "打印二维码 ");
-                new PrintThread(PrinterActivity.this, R.mipmap.pax_logo).run();
+                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
+                    new PrintThread(PrinterActivity.this, R.mipmap.pax_logo).run();
+                else
+                    ToastUtil.showToast("请检查打印机状态!");
                 break;
 
             case R.id.btn_printer_black_square:
                 Log.e(TAG, "打印黑色块");
-                new PrintThread(PrinterActivity.this, R.mipmap.black_sp).run();
+                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
+                    new PrintThread(PrinterActivity.this, R.mipmap.black_sp).run();
+                else
+                    ToastUtil.showToast("请检查打印机状态!");
                 break;
         }
     }

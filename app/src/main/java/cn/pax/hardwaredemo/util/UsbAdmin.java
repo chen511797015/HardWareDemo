@@ -124,17 +124,14 @@ public class UsbAdmin {
                         }
                     }
                 }
-
             }
 
             // 建立USB连接
-            if (mDevice != null) {
+            if (mDevice != null && mUsbInterface != null) {
                 UsbDeviceConnection connection = mUsbManager.openDevice(mDevice);
-                boolean claimInterface = connection.claimInterface(mUsbInterface, true);//申明接口
-                if (connection != null && claimInterface) {
+                if (connection != null && connection.claimInterface(mUsbInterface, true)) {//申明接口
                     mConnection = connection;
                     Log.d(TAG, "USB设备连接成功!");
-
                 } else {
                     mConnection = null;
                     Log.d(TAG, "USB设备连接失败");

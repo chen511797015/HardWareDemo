@@ -133,20 +133,16 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
 
         try {
             mPlayer = new MediaPlayer();
+            mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             AssetFileDescriptor mFileDescriptor = null;
             mFileDescriptor = getAssets().openFd("horn_birthday.mp3");//horn_birthday.mp3    play.mp3
             mPlayer.setDataSource(mFileDescriptor.getFileDescriptor(), mFileDescriptor.getStartOffset(), mFileDescriptor.getLength());
             mPlayer.setLooping(true);
             mPlayer.prepareAsync();
-            mPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-                @Override
-                public boolean onError(MediaPlayer mp, int what, int extra) {
-                    Log.e(TAG, "onError: " + mp.toString());
-                    return false;
-                }
-            });
+
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e(TAG, "音频解码错误!");
         }
 
     }

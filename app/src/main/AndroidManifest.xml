@@ -27,7 +27,13 @@
 
 
         </activity>
-        <activity android:name=".activity.ScannerActivity" />
+        <activity android:name=".activity.ScannerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.CashBoxActivity">
 
         </activity>
@@ -36,11 +42,7 @@
         <activity android:name=".activity.NetWorkActivity" />
         <activity android:name=".activity.BluetoothActivity" />
         <activity android:name=".activity.SpeakerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.CameraActivity">
 
