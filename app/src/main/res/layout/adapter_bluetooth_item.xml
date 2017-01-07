@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:src="@mipmap/bluetooth_small" />
+
+    <TextView
+        android:id="@+id/tv_bluetooth_name_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        android:text="termination"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_bluetooth_address_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1.5"
+        android:text="B0:E2:35:A1:87:34"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/tv_bluetooth_connected_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        android:text="Connected"
+        android:textSize="30sp" />
+
+</LinearLayout>

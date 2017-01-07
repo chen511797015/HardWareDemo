@@ -1,13 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_bluetooth"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cn.pax.hardwaredemo.activity.BluetoothActivity">
+    android:background="#f1f1f1">
+
+    <!--Bluetooth-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#e1e1e1">
+
+        <ImageView
+            android:id="@+id/iv_printer_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back_black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_printer_back"
+            android:text="Bluetooth"
+            android:textSize="30sp" />
+
+
+    </RelativeLayout>
+
+
+    <!--Bluetooth connection-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth connection"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="@dimen/y300"
+            android:layout_height="@dimen/x237"
+            android:background="@drawable/rectangle_corners_white_gray"
+            android:orientation="vertical">
+
+            <!--Select Nearby Bluetooth Signal,蓝牙开关-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Nearby Bluetooth Signal"
+                    android:textSize="30sp" />
+
+                <ToggleButton
+                    android:id="@+id/tb_bluetooth_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="#00000000"
+                    android:button="@drawable/tb_bg_screen"
+                    android:checked="false"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#e1e1e1"></View>
+
+            <!--展示蓝牙设备-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ListView
+                    android:id="@+id/lv_bluetooth_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </ListView>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#e1e1e1"></View>
+
+
+            <!--Refresh-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_bluetooth_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_bluetooth_refresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/loading_img" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refresh"
+                        android:textSize="30sp" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>
+

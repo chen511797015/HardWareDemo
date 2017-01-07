@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
 
+    <!--蓝牙权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+
     <application
         android:name=".HardWareApplication"
         android:allowBackup="true"
@@ -21,11 +26,7 @@
         </activity>
         <activity android:name=".activity.DeviceActivity" />
         <activity android:name=".activity.ScreenActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".activity.TouchActivity" />
@@ -43,7 +44,13 @@
         <activity android:name=".activity.GenerationActivity" />
         <activity android:name=".activity.RouterActivity" />
         <activity android:name=".activity.NetWorkActivity" />
-        <activity android:name=".activity.BluetoothActivity" />
+        <activity android:name=".activity.BluetoothActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.SpeakerActivity">
 
         </activity>
