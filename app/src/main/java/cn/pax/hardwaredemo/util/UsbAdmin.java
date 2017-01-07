@@ -43,7 +43,6 @@ public class UsbAdmin {
         this.mContext = mContext;
         mUsbManager = (UsbManager) mContext.getSystemService(Context.USB_SERVICE);
         mPermissionIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(ACTION_USB_PERMISSION), 0);
-
         IntentFilter mFilter = new IntentFilter(ACTION_USB_PERMISSION);
         mContext.registerReceiver(mUsbReceiver, mFilter);
 
