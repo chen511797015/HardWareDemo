@@ -36,6 +36,7 @@
         <activity android:name=".activity.ScannerActivity">
 
         </activity>
+        <activity android:name=".activity.ScreenTestActivity" />
         <activity android:name=".activity.CashBoxActivity">
 
         </activity>
