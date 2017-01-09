@@ -53,10 +53,30 @@ public class NetWorkActivity extends BaseActivity {
 
     }
 
+
     @Override
     protected void findView() {
 
         iv_network_back = (ImageView) findViewById(R.id.iv_network_back);
+        tb_net_work_open = (ToggleButton) findViewById(R.id.tb_net_work_open);
+        lv_net_show = (ListView) findViewById(R.id.lv_net_show);
+        ll_net_refresh = (LinearLayout) findViewById(R.id.ll_net_refresh);
+
+        iv_net_refresh = (ImageView) findViewById(R.id.iv_net_refresh);
+        tv_net_wlan_name = (TextView) findViewById(R.id.tv_net_wlan_name);
+        tv_net_lan_name = (TextView) findViewById(R.id.tv_net_lan_name);
+        tv_net_wlan_ip = (TextView) findViewById(R.id.tv_net_wlan_ip);
+        tv_net_lan_ip = (TextView) findViewById(R.id.tv_net_lan_ip);
+        tv_net_wlan_mac = (TextView) findViewById(R.id.tv_net_wlan_mac);
+        tv_net_lan_mac = (TextView) findViewById(R.id.tv_net_lan_mac);
+        tv_net_signal_intensity = (TextView) findViewById(R.id.tv_net_signal_intensity);
+        iv_net_show_signal = (ImageView) findViewById(R.id.iv_net_show_signal);
+        tv_net_ping_gateway = (TextView) findViewById(R.id.tv_net_ping_gateway);
+        iv_net_show_ping_gateway = (ImageView) findViewById(R.id.iv_net_show_ping_gateway);
+        tv_net_website = (TextView) findViewById(R.id.tv_net_website);
+        iv_net_show_website = (ImageView) findViewById(R.id.iv_net_show_website);
+        btn_net_start = (Button) findViewById(R.id.btn_net_start);
+        iv_net_show_start = (ImageView) findViewById(R.id.iv_net_show_start);
 
     }
 
