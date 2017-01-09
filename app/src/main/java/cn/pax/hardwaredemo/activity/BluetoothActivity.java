@@ -39,6 +39,7 @@ public class BluetoothActivity extends BaseActivity {
 
     private static final String TAG = "BluetoothActivity";
 
+    ImageView iv_bluetooth_back;//返回按钮
     LinearLayout ll_bluetooth_refresh;//刷新蓝牙设备
     ImageView iv_bluetooth_refresh;//刷新旋转图标
     ToggleButton tb_bluetooth_open;//蓝牙开关
@@ -64,6 +65,7 @@ public class BluetoothActivity extends BaseActivity {
         iv_bluetooth_refresh = (ImageView) findViewById(R.id.iv_bluetooth_refresh);
         tb_bluetooth_open = (ToggleButton) findViewById(R.id.tb_bluetooth_open);
         lv_bluetooth_show = (ListView) findViewById(R.id.lv_bluetooth_show);
+        iv_bluetooth_back = (ImageView) findViewById(R.id.iv_bluetooth_back);
 
     }
 
@@ -73,6 +75,14 @@ public class BluetoothActivity extends BaseActivity {
         setOnLlRefreshListener();
 
         setOnTbClickListener();
+
+
+        iv_bluetooth_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -115,6 +125,7 @@ public class BluetoothActivity extends BaseActivity {
         if (mBluetoothAdapter.isDiscovering()) {
             mBluetoothAdapter.cancelDiscovery();
         }
+
     }
 
     private void initBluetooth() {
@@ -137,8 +148,6 @@ public class BluetoothActivity extends BaseActivity {
             startRotateAnimation();
             searchBluetoothDevice();
         }
-
-
     }
 
     /**

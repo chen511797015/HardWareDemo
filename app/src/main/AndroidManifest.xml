@@ -23,6 +23,12 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity android:name=".activity.DeviceActivity" />
         <activity android:name=".activity.ScreenActivity">
@@ -45,11 +51,7 @@
         <activity android:name=".activity.RouterActivity" />
         <activity android:name=".activity.NetWorkActivity" />
         <activity android:name=".activity.BluetoothActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.SpeakerActivity">
 
