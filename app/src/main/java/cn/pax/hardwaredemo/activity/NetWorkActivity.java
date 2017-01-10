@@ -155,8 +155,7 @@ public class NetWorkActivity extends BaseActivity {
                 mWifiInfo = mWifiAdmin.getWifiInfo();
                 tv_net_signal_intensity.setText(mWifiInfo.getRssi() + "db");
                 tv_net_ping_gateway.setText(intToIp(mWifiInfo.getIpAddress()));
-                ToastUtil.showToast("");
-
+                ToastUtil.showToast("WIFI测试...");
             }
         });
     }

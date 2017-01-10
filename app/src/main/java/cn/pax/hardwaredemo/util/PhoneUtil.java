@@ -57,4 +57,6 @@ public class PhoneUtil {
     public static int getSystemBrightness(Context mContext) throws Exception {
         return Settings.System.getInt(mContext.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
     }
+
+
 }

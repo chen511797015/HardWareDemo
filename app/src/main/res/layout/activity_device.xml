@@ -96,6 +96,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
+                                android:id="@+id/tv_device_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RK3288" />
@@ -118,6 +119,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
+                                android:id="@+id/tv_device_version"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="5.1" />
@@ -212,6 +214,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
+                                android:id="@+id/tv_device_wlan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="a2:1d:cq:60:00:00:01" />
@@ -234,6 +237,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
+                                android:id="@+id/tv_device_lan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="a2:1d:cq:60:00:00:01" />
@@ -1144,6 +1148,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
+                                android:id="@+id/tv_device_router_mac"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="a2:1d:cq:60:00:00:01" />
