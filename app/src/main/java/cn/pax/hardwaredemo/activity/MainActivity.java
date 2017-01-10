@@ -136,8 +136,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 index = 11;
                 break;
         }
+
         Log.e(TAG, "选中界面: " + mClass[index].getSimpleName());
-        if (index == 6) {
+        if (index == 6 || index == 11) {
             ToastUtil.showToast("Stay tuned for!");
             return;
         }

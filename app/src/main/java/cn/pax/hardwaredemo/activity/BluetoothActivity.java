@@ -92,7 +92,6 @@ public class BluetoothActivity extends BaseActivity {
                 startActivity(new Intent(Settings.ACTION_BLUETOOTH_SETTINGS));
             }
         });
-
     }
 
 
@@ -101,7 +100,6 @@ public class BluetoothActivity extends BaseActivity {
 
 
         mBluetoothList = new ArrayList<>();
-
         mAdapter = new BluetoothShowAdapter(this, mBluetoothList);
         lv_bluetooth_show.setAdapter(mAdapter);
 

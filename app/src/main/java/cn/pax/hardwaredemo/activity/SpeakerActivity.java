@@ -135,7 +135,8 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
             mPlayer = new MediaPlayer();
             mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             AssetFileDescriptor mFileDescriptor = null;
-            mFileDescriptor = getAssets().openFd("horn_birthday.mp3");//horn_birthday.mp3    play.mp3
+            //horn_birthday.mp3    play.mp3     bell.mp3
+            mFileDescriptor = getAssets().openFd("bell.mp3");
             mPlayer.setDataSource(mFileDescriptor.getFileDescriptor(), mFileDescriptor.getStartOffset(), mFileDescriptor.getLength());
             mPlayer.setLooping(true);
             mPlayer.prepareAsync();
@@ -203,6 +204,15 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mPlayer.isPlaying()) {
+            mPlayer.pause();
+            btn_speaker_play.setBackgroundResource(R.mipmap.pause);
+        }
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
