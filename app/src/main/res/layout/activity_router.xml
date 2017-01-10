@@ -30,12 +30,45 @@
             android:textSize="30sp" />
     </RelativeLayout>
 
-
-    <WebView
-        android:id="@+id/wv_router_test"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"></WebView>
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/wv_router_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></WebView>
+
+
+        <LinearLayout
+            android:id="@+id/ll_router_show_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <ProgressBar
+                style="@style/publicloadingProgressStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:text="正在加载中……"
+                android:textColor="@android:color/black"
+                android:textSize="14dip" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

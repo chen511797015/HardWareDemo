@@ -1,11 +1,16 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +31,12 @@ public class RouterActivity extends BaseActivity {
     ImageView ivRouterBack;
     @BindView(R.id.wv_router_test)
     WebView wvRouterTest;
-    private WebSettings mWebSettings;
+    WebSettings mWebSettings;
+    @BindView(R.id.ll_router_show_anim)
+    LinearLayout mShowAnim;
+    @BindView(R.id.activity_router)
+    LinearLayout activityRouter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +72,28 @@ public class RouterActivity extends BaseActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 view.loadUrl(mUrlString);
-                return super.shouldOverrideUrlLoading(view, request);
+                return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                mShowAnim.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                mShowAnim.setVisibility(View.GONE);
             }
         });
+
+        wvRouterTest.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                //网页加载进度...
+            }
+        });
+
+
     }
 
 
@@ -80,6 +109,30 @@ public class RouterActivity extends BaseActivity {
             wvRouterTest.goBack();
         } else {
             finish();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (wvRouterTest != null) {
+            wvRouterTest.onPause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (wvRouterTest != null) {
+            wvRouterTest.onResume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (wvRouterTest != null) {
+            wvRouterTest.destroy();
         }
     }
 }

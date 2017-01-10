@@ -9,6 +9,7 @@ import android.view.Window;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.ui.CustomBtnView;
+import cn.pax.hardwaredemo.util.ToastUtil;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -110,8 +111,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 index = 5;
                 break;
             case R.id.cb_3g_4g:
-                //TODO 3G/4G
+                //TODO 3G/4G --后续开发
                 index = 6;
+
                 break;
             case R.id.cb_router:
                 //TODO 路由器
@@ -135,6 +137,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
         Log.e(TAG, "选中界面: " + mClass[index].getSimpleName());
+        if (index == 6) {
+            ToastUtil.showToast("Stay tuned for!");
+            return;
+        }
         startActivity(new Intent(MainActivity.this, mClass[index]));
     }
 
