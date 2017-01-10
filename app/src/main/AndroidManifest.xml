@@ -3,6 +3,8 @@
     package="cn.pax.hardwaredemo">
 
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -47,7 +49,14 @@
 
         </activity>
         <activity android:name=".activity.GenerationActivity" />
-        <activity android:name=".activity.RouterActivity" />
+        <activity android:name=".activity.RouterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".activity.NetWorkActivity">
 
 
@@ -59,11 +68,6 @@
 
         </activity>
         <activity android:name=".activity.CameraActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>
