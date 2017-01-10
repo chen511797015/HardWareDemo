@@ -16,6 +16,8 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import javax.security.auth.login.LoginException;
+
 import static android.R.attr.id;
 import static android.hardware.usb.UsbConstants.USB_ENDPOINT_XFER_CONTROL;
 
@@ -44,6 +46,8 @@ public class UsbAdmin {
         mUsbManager = (UsbManager) mContext.getSystemService(Context.USB_SERVICE);
         mPermissionIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(ACTION_USB_PERMISSION), 0);
         IntentFilter mFilter = new IntentFilter(ACTION_USB_PERMISSION);
+        mFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        mFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         mContext.registerReceiver(mUsbReceiver, mFilter);
 
     }
@@ -60,6 +64,7 @@ public class UsbAdmin {
                 Log.d(TAG, "没有检测到USB设备!");
                 return;
             }
+
             Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
             while (deviceIterator.hasNext()) {
                 UsbDevice device = deviceIterator.next();
@@ -69,7 +74,14 @@ public class UsbAdmin {
         } else {
             //设置USB设备信息
             setDevice(mDevice);
-
+            if (mConnection != null) {
+                HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
+                Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
+                while (deviceIterator.hasNext()) {
+                    UsbDevice device = deviceIterator.next();
+                    mUsbManager.requestPermission(device, mPermissionIntent);
+                }
+            }
         }
     }
 
@@ -102,14 +114,17 @@ public class UsbAdmin {
         if (device != null) {
             mDevice = device;
             UsbInterface mUsbInterface = null;
-            int interfaceCount = mDevice.getInterfaceCount();//usb接口数
-            for (int i = 0; i < interfaceCount; i++) {
-                UsbInterface mDeviceInterface = mDevice.getInterface(i);
+            int interfaceCount = device.getInterfaceCount();//usb接口数
+            int i;
+            for (i = 0; i < interfaceCount; i++) {
+                int j;
+                UsbInterface mDeviceInterface = device.getInterface(i);
                 mUsbInterface = mDeviceInterface;
+
+                //判断属于打印机设备
                 if (mUsbInterface.getInterfaceClass() == UsbConstants.USB_CLASS_PRINTER) {
-                    //打印机设备
                     int mUsbInterfaceEndpointCount = mUsbInterface.getEndpointCount();
-                    for (int j = 0; j < mUsbInterfaceEndpointCount; j++) {
+                    for (j = 0; j < mUsbInterfaceEndpointCount; j++) {
                         UsbEndpoint mUsbInterfaceEndpoint = mUsbInterface.getEndpoint(j);
                         if (mUsbInterfaceEndpoint.getDirection() == USB_ENDPOINT_XFER_CONTROL && mUsbInterfaceEndpoint.getType() == UsbConstants.USB_ENDPOINT_XFER_BULK) {
                             //获取打印机设备输出端点
@@ -122,7 +137,15 @@ public class UsbAdmin {
 
                         }
                     }
+                    if (j != mUsbInterfaceEndpointCount) {
+                        break;
+                    }
                 }
+            }
+
+            if (i == interfaceCount) {
+                Log.i(TAG, "没有打印机接口");
+                return;
             }
 
             // 建立USB连接
@@ -173,6 +196,7 @@ public class UsbAdmin {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+            Log.d(TAG, "onReceive: " + action);
             if (ACTION_USB_PERMISSION.equals(action)) {
                 synchronized (this) {
                     UsbDevice device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
@@ -187,8 +211,30 @@ public class UsbAdmin {
                         Log.d(TAG, "无法获取usb权限: " + device);
                     }
                 }
-
             }
+
+            //USB设备拔下
+            if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
+                HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
+                if (deviceList.size() == 0) {
+                    mDevice = null;
+                    mConnection = null;
+                    closeUsb();
+                    return;
+                }
+
+                Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
+                while (deviceIterator.hasNext()) {
+                    UsbDevice device = deviceIterator.next();
+                    setDevice(device);
+                }
+            }
+
+
+            //USB设备插上
+            if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
+            }
+
 
         }
     };

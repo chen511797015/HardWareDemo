@@ -64,7 +64,6 @@ public class DeviceActivity extends BaseActivity {
     @Override
     protected void init() {
 
-
         //初始化数据信息
         PhoneAdmin mPhoneAdmin = new PhoneAdmin(this);
         mTvDeviceName.setText(mPhoneAdmin.getDeviceName());

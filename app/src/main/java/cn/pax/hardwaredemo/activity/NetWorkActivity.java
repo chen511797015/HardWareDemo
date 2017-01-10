@@ -1,5 +1,9 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -11,7 +15,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,6 +31,7 @@ import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.adapter.NetShowAdapter;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.bean.WifiScanResultBean;
+import cn.pax.hardwaredemo.util.PhoneAdmin;
 import cn.pax.hardwaredemo.util.ToastUtil;
 import cn.pax.hardwaredemo.util.WifiAdmin;
 
@@ -118,6 +125,24 @@ public class NetWorkActivity extends BaseActivity {
 
         setOnBtnTestClick();
 
+        tb_net_work_open.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Log.e(TAG, "WIFI打开...");
+                }
+            }
+        });
+
+
+        lv_net_show.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //自动跳转到系统wifi连接界面
+                startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
+            }
+        });
+
 
     }
 
@@ -142,6 +167,8 @@ public class NetWorkActivity extends BaseActivity {
 
         initMyView();
 
+        startAnimAndSearchWifi();
+
     }
 
 
@@ -153,8 +180,14 @@ public class NetWorkActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 mWifiInfo = mWifiAdmin.getWifiInfo();
-                tv_net_signal_intensity.setText(mWifiInfo.getRssi() + "db");
-                tv_net_ping_gateway.setText(intToIp(mWifiInfo.getIpAddress()));
+                if (mWifiInfo != null) {
+                    iv_net_show_signal.setImageResource(R.mipmap.net_ok);
+                    iv_net_show_ping_gateway.setImageResource(R.mipmap.net_ok);
+                    iv_net_show_website.setImageResource(R.mipmap.net_ok);
+                    tv_net_signal_intensity.setText(mWifiInfo.getRssi() + "db");
+                    tv_net_ping_gateway.setText(intToIp(mWifiInfo.getIpAddress()));
+                    iv_net_show_start.setVisibility(View.VISIBLE);
+                }
                 ToastUtil.showToast("WIFI测试...");
             }
         });
@@ -168,8 +201,20 @@ public class NetWorkActivity extends BaseActivity {
             tv_net_wlan_name.setText(mWifiInfo.getSSID());
             tv_net_wlan_ip.setText(intToIp(mWifiInfo.getIpAddress()));
             tv_net_wlan_mac.setText(mWifiInfo.getMacAddress());
-            tv_net_signal_intensity.setText(mWifiInfo.getRssi() + "db");
-            tv_net_ping_gateway.setText(intToIp(mWifiInfo.getIpAddress()));
+            tb_net_work_open.setChecked(true);
+
+
+            iv_net_show_website.setImageResource(R.mipmap.net_failure);
+            iv_net_show_signal.setImageResource(R.mipmap.net_failure);
+            iv_net_show_ping_gateway.setImageResource(R.mipmap.net_failure);
+            tv_net_signal_intensity.setText("");
+            tv_net_ping_gateway.setText("");
+
+
+            //以太网设置
+            tv_net_lan_mac.setText(new PhoneAdmin(this).getRouterMacAddress());
+            tv_net_lan_ip.setText(new PhoneAdmin(this).getRouterIp());
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -183,7 +228,6 @@ public class NetWorkActivity extends BaseActivity {
      * @return
      */
     private String intToIp(int ipAdress) {
-        //return ((ipAdress >> 24) & 0xFF) + "." + ((ipAdress >> 16) & 0xFF) + "." + ((ipAdress >> 8) & 0xFF) + "." + (ipAdress & 0xFF);
         return (ipAdress & 0xFF) + "." + ((ipAdress >> 8) & 0xFF) + "." + ((ipAdress >> 16) & 0xFF) + "." + ((ipAdress >> 24) & 0xFF);
     }
 
@@ -248,5 +292,6 @@ public class NetWorkActivity extends BaseActivity {
 //            //status: 0--   已连接   1--正在连接 2--未连接
 //        }
     }
+
 
 }

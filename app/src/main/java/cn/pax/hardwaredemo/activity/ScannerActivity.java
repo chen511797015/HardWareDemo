@@ -24,6 +24,7 @@ public class ScannerActivity extends BaseActivity {
     EditText et_scanner_code;// 扫描输入的条码
     ImageView iv_scanner_ok;//显示扫码成功
     Button btn_scanner_bar_code;//条码打印
+    ImageView iv_scanner_back;//返回健
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class ScannerActivity extends BaseActivity {
         et_scanner_code.setInputType(InputType.TYPE_NULL);
         iv_scanner_ok = (ImageView) findViewById(R.id.iv_scanner_ok);
         btn_scanner_bar_code = (Button) findViewById(R.id.btn_scanner_bar_code);
+        iv_scanner_back = (ImageView) findViewById(R.id.iv_scanner_back);
 
     }
 
@@ -56,8 +58,7 @@ public class ScannerActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
-                Log.e(TAG, "编辑框文本变化 " + s.toString());
+                Log.i(TAG, "编辑框文本变化 " + s.toString());
                 iv_scanner_ok.setVisibility(View.VISIBLE);
 
             }
@@ -73,6 +74,13 @@ public class ScannerActivity extends BaseActivity {
             }
         });
 
+
+        iv_scanner_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
