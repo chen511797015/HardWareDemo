@@ -3,15 +3,20 @@ package cn.pax.hardwaredemo.util;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by chendd on 2017/1/10.
@@ -19,6 +24,7 @@ import java.util.Enumeration;
  */
 
 public class PhoneAdmin {
+    private static final String TAG = "PhoneAdmin";
 
     Context mContext;
     private final WifiManager mWifiManager;
@@ -115,8 +121,10 @@ public class PhoneAdmin {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return null;
     }
+
 
     /**
      * 将int转换成ip地址

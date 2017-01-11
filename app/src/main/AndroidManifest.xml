@@ -2,18 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.pax.hardwaredemo">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
 
-    <!--蓝牙权限-->
+    <!-- 蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-
 
     <application
         android:name=".HardWareApplication"
@@ -26,51 +23,28 @@
             android:name=".activity.MainActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-        <activity android:name=".activity.DeviceActivity">
-
-        </activity>
-        <activity android:name=".activity.ScreenActivity">
-
-        </activity>
-        <activity android:name=".activity.TouchActivity">
-
-        </activity>
-        <activity android:name=".activity.PrinterActivity">
-
-        </activity>
-        <activity android:name=".activity.ScannerActivity">
-
-        </activity>
+        <activity android:name=".activity.DeviceActivity"></activity>
+        <activity android:name=".activity.ScreenActivity"></activity>
+        <activity android:name=".activity.TouchActivity"></activity>
+        <activity android:name=".activity.PrinterActivity"></activity>
+        <activity android:name=".activity.ScannerActivity"></activity>
         <activity android:name=".activity.ScreenTestActivity" />
-        <activity android:name=".activity.CashBoxActivity">
-
-        </activity>
+        <activity android:name=".activity.CashBoxActivity"></activity>
         <activity android:name=".activity.GenerationActivity" />
-        <activity android:name=".activity.RouterActivity">
-
-
-        </activity>
-        <activity android:name=".activity.NetWorkActivity">
-
-        </activity>
-        <activity android:name=".activity.BluetoothActivity">
-
-        </activity>
-        <activity android:name=".activity.SpeakerActivity">
-
-        </activity>
+        <activity android:name=".activity.RouterActivity"></activity>
+        <activity android:name=".activity.NetWorkActivity"></activity>
+        <activity android:name=".activity.BluetoothActivity"></activity>
+        <activity android:name=".activity.SpeakerActivity"></activity>
         <activity android:name=".activity.CameraActivity">
 
         </activity>
+        <activity android:name=".activity.CameraTestActivity"></activity>
     </application>
 
 </manifest>

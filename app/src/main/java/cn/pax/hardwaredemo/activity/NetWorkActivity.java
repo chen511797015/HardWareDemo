@@ -199,9 +199,13 @@ public class NetWorkActivity extends BaseActivity {
     private void initMyView() {
         try {
             tv_net_wlan_name.setText(mWifiInfo.getSSID());
-            tv_net_wlan_ip.setText(intToIp(mWifiInfo.getIpAddress()));
+            tv_net_wlan_ip.setText("- - - -");
             tv_net_wlan_mac.setText(mWifiInfo.getMacAddress());
             tb_net_work_open.setChecked(true);
+
+            //以太网设置
+            tv_net_lan_mac.setText(new PhoneAdmin(this).getRouterMacAddress());
+            tv_net_lan_ip.setText(intToIp(mWifiInfo.getIpAddress()));
 
 
             iv_net_show_website.setImageResource(R.mipmap.net_failure);
@@ -209,11 +213,6 @@ public class NetWorkActivity extends BaseActivity {
             iv_net_show_ping_gateway.setImageResource(R.mipmap.net_failure);
             tv_net_signal_intensity.setText("");
             tv_net_ping_gateway.setText("");
-
-
-            //以太网设置
-            tv_net_lan_mac.setText(new PhoneAdmin(this).getRouterMacAddress());
-            tv_net_lan_ip.setText(new PhoneAdmin(this).getRouterIp());
 
 
         } catch (Exception e) {

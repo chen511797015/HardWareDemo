@@ -4,4 +4,6 @@
     <string name="note_cash_box">Note: if the cashbox has been connected ,
     when you clicking on the button ,
     there will be a big noise !</string>
+    <string name="test_zxing"><![CDATA[open & test]]></string>
+    <string name="close_exit"><![CDATA[close & exit]]></string>
 </resources>

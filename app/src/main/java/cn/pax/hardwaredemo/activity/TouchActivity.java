@@ -4,8 +4,11 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -17,7 +20,9 @@ import cn.pax.hardwaredemo.ui.MultiTouchView;
  */
 
 public class TouchActivity extends BaseActivity {
+
     private static final String TAG = "TouchActivity";
+    ImageView iv_touch_back;//触摸返回
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +35,26 @@ public class TouchActivity extends BaseActivity {
         super.onCreate(savedInstanceState, R.layout.activity_touch);
 
         // 设置为上面的MTView
-        setContentView(new MultiTouchView(this));
+        //setContentView(new MultiTouchView(this));
 
     }
 
     @Override
     protected void findView() {
+        iv_touch_back = (ImageView) findViewById(R.id.iv_touch_back);
 
     }
 
     @Override
     protected void initEvent() {
+
+        iv_touch_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
     }
 
@@ -52,8 +66,11 @@ public class TouchActivity extends BaseActivity {
 
     }
 
-    private void startApk() {
 
+    /**
+     * 启动其他app
+     */
+    private void startApk() {
         try {
             ComponentName componetName = new ComponentName("com.itxinke.multitouch", "com.itxinke.multitouch.Multitouch");
             Intent intent = new Intent();

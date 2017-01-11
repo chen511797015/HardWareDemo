@@ -149,8 +149,8 @@ public class UsbAdmin {
             }
 
             // 建立USB连接
-            if (mDevice != null && mUsbInterface != null) {
-                UsbDeviceConnection connection = mUsbManager.openDevice(mDevice);
+            if (device != null && mUsbInterface != null) {
+                UsbDeviceConnection connection = mUsbManager.openDevice(device);
                 if (connection != null && connection.claimInterface(mUsbInterface, true)) {//申明接口
                     mConnection = connection;
                     Log.d(TAG, "USB设备连接成功!");

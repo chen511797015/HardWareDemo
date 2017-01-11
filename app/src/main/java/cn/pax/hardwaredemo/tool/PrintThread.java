@@ -31,7 +31,6 @@ public class PrintThread implements Runnable {
     @Override
     public void run() {
         print();
-
     }
 
     /**

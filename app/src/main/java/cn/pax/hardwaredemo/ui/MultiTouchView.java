@@ -154,7 +154,8 @@ public class MultiTouchView extends SurfaceView implements SurfaceHolder.Callbac
      * @param c
      */
     private void drawCircle(int x, int y, Paint paint, Canvas c) {
-        c.drawCircle(x, y, 40 * scale, paint);
+        //c.drawCircle(x, y, 40 * scale, paint);
+        c.drawCircle(x, y, 20 * scale, paint);
     }
 
     /**
