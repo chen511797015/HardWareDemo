@@ -33,6 +33,7 @@ public class PrinterConstants {
      */
     public static final byte[] PrinterAbout = {0x1b, 0x23, 0x23, 0x53, 0x45, 0x4c, 0x46};
 
+
     /**
      * 左对齐--0x00  中间对齐--0x01  右对齐--0x02
      */
@@ -52,5 +53,6 @@ public class PrinterConstants {
         result[1] = 0x64;
         result[2] = 0x64;
         return result;
+
     }
 }

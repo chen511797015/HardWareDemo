@@ -53,7 +53,7 @@
             <!--Select Nearby Bluetooth Signal,蓝牙开关-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="72dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -65,17 +65,17 @@
                     android:text="Select Nearby Bluetooth Signal"
                     android:textSize="30sp" />
 
-                <ToggleButton
-                    android:id="@+id/tb_bluetooth_open"
+                <Button
+                    android:id="@+id/btn_bluetooth_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:background="#00000000"
-                    android:button="@drawable/tb_bg_screen"
-                    android:checked="false"
-                    android:text=""
-                    android:textOff=""
-                    android:textOn="" />
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/rectangle_corners_blue_gray"
+                    android:padding="10dp"
+                    android:text="Settings"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp" />
 
 
             </LinearLayout>

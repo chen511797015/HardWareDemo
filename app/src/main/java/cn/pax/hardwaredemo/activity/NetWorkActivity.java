@@ -1,15 +1,15 @@
 package cn.pax.hardwaredemo.activity;
 
-import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.wifi.ScanResult;
-import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -24,8 +24,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import java.security.Permission;
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.security.auth.login.LoginException;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.adapter.NetShowAdapter;
@@ -46,10 +50,10 @@ public class NetWorkActivity extends BaseActivity {
 
 
     //---------------------Left------------------------
-    ToggleButton tb_net_work_open;//WIFI开关
     ListView lv_net_show;//显示WIFI信息
     LinearLayout ll_net_refresh;//点击刷新
     ImageView iv_net_refresh;//刷新动画
+    Button btn_net_settings;//跳转到设置界面
 
     //---------------------Right-----------------------
     TextView tv_net_wlan_name;//WLAN
@@ -77,6 +81,9 @@ public class NetWorkActivity extends BaseActivity {
     NetShowAdapter mNetShowAdapter;
     WifiInfo mWifiInfo = null;
 
+
+    final static int WIFI_SETTINGS_REQUEST_CODE = 10086;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.e(TAG, "初始化NewWork界面...");
@@ -89,7 +96,7 @@ public class NetWorkActivity extends BaseActivity {
     protected void findView() {
 
         iv_network_back = (ImageView) findViewById(R.id.iv_network_back);
-        tb_net_work_open = (ToggleButton) findViewById(R.id.tb_net_work_open);
+        btn_net_settings = (Button) findViewById(R.id.btn_net_settings);
         lv_net_show = (ListView) findViewById(R.id.lv_net_show);
         ll_net_refresh = (LinearLayout) findViewById(R.id.ll_net_refresh);
         iv_net_refresh = (ImageView) findViewById(R.id.iv_net_refresh);
@@ -108,6 +115,13 @@ public class NetWorkActivity extends BaseActivity {
         btn_net_start = (Button) findViewById(R.id.btn_net_start);
         iv_net_show_start = (ImageView) findViewById(R.id.iv_net_show_start);
 
+
+        //动态监听wifi状态
+        IntentFilter mFilter = new IntentFilter();
+        mFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+        mFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);//扫描状态
+        this.registerReceiver(mReceiver, mFilter);
+
     }
 
     @Override
@@ -125,21 +139,21 @@ public class NetWorkActivity extends BaseActivity {
 
         setOnBtnTestClick();
 
-        tb_net_work_open.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    Log.e(TAG, "WIFI打开...");
-                }
-            }
-        });
-
 
         lv_net_show.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //自动跳转到系统wifi连接界面
                 startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
+            }
+        });
+
+
+        // 设置wifi
+        btn_net_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(Settings.ACTION_WIFI_SETTINGS), WIFI_SETTINGS_REQUEST_CODE);
             }
         });
 
@@ -162,11 +176,8 @@ public class NetWorkActivity extends BaseActivity {
         mWifiAdmin = new WifiAdmin(this);
         mWifiAdmin.openWifi();
         ToastUtil.showToast("当前Wifi状态为: " + mWifiAdmin.checkWifiStatus());
-
         mWifiInfo = mWifiAdmin.getWifiInfo();
-
         initMyView();
-
         startAnimAndSearchWifi();
 
     }
@@ -201,12 +212,10 @@ public class NetWorkActivity extends BaseActivity {
             tv_net_wlan_name.setText(mWifiInfo.getSSID());
             tv_net_wlan_ip.setText("- - - -");
             tv_net_wlan_mac.setText(mWifiInfo.getMacAddress());
-            tb_net_work_open.setChecked(true);
 
             //以太网设置
             tv_net_lan_mac.setText(new PhoneAdmin(this).getRouterMacAddress());
             tv_net_lan_ip.setText(intToIp(mWifiInfo.getIpAddress()));
-
 
             iv_net_show_website.setImageResource(R.mipmap.net_failure);
             iv_net_show_signal.setImageResource(R.mipmap.net_failure);
@@ -249,7 +258,6 @@ public class NetWorkActivity extends BaseActivity {
     private void startAnimAndSearchWifi() {
         iv_net_refresh.startAnimation(mRotateAnim);
         getAllNetWorkList();
-
     }
 
     /**
@@ -277,6 +285,7 @@ public class NetWorkActivity extends BaseActivity {
                     mScanWifiList.add(bean);
                 }
             }
+
             //关闭动画
             iv_net_refresh.clearAnimation();
             mNetShowAdapter.notifyDataSetChanged();
@@ -293,4 +302,42 @@ public class NetWorkActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.unregisterReceiver(mReceiver);
+    }
+
+
+    /**
+     * 网络改变监听
+     */
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(action)) {//监听wifi的打开与关闭,与wifi的连接无关
+                int intExtra = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);
+
+                switch (intExtra) {
+                    case WifiManager.WIFI_STATE_DISABLED:
+                        //关闭
+                        Log.e(TAG, "关闭: ");
+                        //每次扫描之前清空上一次扫描结果
+                        if (mScanWifiList != null) {
+                            mScanWifiList.clear();
+                            mNetShowAdapter.notifyDataSetChanged();
+                        }
+                        break;
+                }
+            }
+            //打开
+            if (WifiManager.SCAN_RESULTS_AVAILABLE_ACTION.equals(action)) {//扫描完成
+                startAnimAndSearchWifi();
+            }
+
+
+        }
+    };
 }

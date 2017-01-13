@@ -57,9 +57,13 @@ public class BluetoothShowAdapter extends BaseAdapter {
         mViewHolder.tv_bluetooth_name_item = (TextView) convertView.findViewById(R.id.tv_bluetooth_name_item);
         mViewHolder.tv_bluetooth_address_item = (TextView) convertView.findViewById(R.id.tv_bluetooth_address_item);
         mViewHolder.tv_bluetooth_connected_show = (TextView) convertView.findViewById(R.id.tv_bluetooth_connected_show);
-        mViewHolder.tv_bluetooth_address_item.setText(mDevice.getAddress());
-        mViewHolder.tv_bluetooth_name_item.setText(mDevice.getName());
 
+        if (mDevice.getName() == null) {
+            mViewHolder.tv_bluetooth_name_item.setText("未知蓝牙设备");
+        } else {
+            mViewHolder.tv_bluetooth_name_item.setText(mDevice.getName());
+        }
+        mViewHolder.tv_bluetooth_address_item.setText(mDevice.getAddress());
         if (mDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
             mViewHolder.tv_bluetooth_connected_show.setVisibility(View.VISIBLE);
         } else if (mDevice.getBondState() == BluetoothDevice.BOND_NONE) {
