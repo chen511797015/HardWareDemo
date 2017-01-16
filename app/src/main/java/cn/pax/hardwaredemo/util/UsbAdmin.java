@@ -213,8 +213,16 @@ public class UsbAdmin {
                 }
             }
 
+            //USB设备插上
+            if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
+                Log.e(TAG, "检测到usb设备插上... ");
+                if (mConnection == null) {
+                    openUsb();
+                }
+            }
             //USB设备拔下
             if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
+                Log.e(TAG, "检测到usb设备断开... ");
                 HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
                 if (deviceList.size() == 0) {
                     mDevice = null;
@@ -222,20 +230,12 @@ public class UsbAdmin {
                     closeUsb();
                     return;
                 }
-
                 Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
                 while (deviceIterator.hasNext()) {
                     UsbDevice device = deviceIterator.next();
                     setDevice(device);
                 }
             }
-
-
-            //USB设备插上
-            if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
-            }
-
-
         }
     };
 

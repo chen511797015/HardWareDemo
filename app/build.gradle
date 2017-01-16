@@ -23,6 +23,7 @@ android {
         cruncherEnabled = false
         useNewCruncher = false
     }
+
 }
 
 dependencies {

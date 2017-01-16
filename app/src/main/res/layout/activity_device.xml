@@ -946,7 +946,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="v4.0+EDR+BLE" />
+                            android:text="BT4.0+EDR+BLE" />
 
                     </LinearLayout>
 

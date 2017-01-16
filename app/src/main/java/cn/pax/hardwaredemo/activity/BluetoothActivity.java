@@ -254,7 +254,6 @@ public class BluetoothActivity extends BaseActivity {
                                 ",Uuids:" + mDevice.getUuids() +
                                 ",BluetoothClass:" + mDevice.getBluetoothClass()
                 );
-
                 //获取已连接的蓝牙信息
                 Iterator<BluetoothDevice> iterator = mBluetoothAdapter.getBondedDevices().iterator();
                 while (iterator.hasNext()) {
