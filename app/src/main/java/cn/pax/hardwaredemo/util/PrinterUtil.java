@@ -132,8 +132,9 @@ public class PrinterUtil {
 
         // 高度指令
         String mHeightHexString = Integer.toHexString(mHeight);
-        if (mHeightHexString.length() > 2) {
-            Log.e("decodeBitmap error", "高度超出 height is too large");
+        //TODO 原始值2
+        if (mHeightHexString.length() > 3) {
+            Log.e("decodeBitmap error", "高度超出 height is too large" + mHeightHexString.length());
             return null;
         } else if (mHeightHexString.length() == 1) {
             mHeightHexString = "0" + mHeightHexString;
@@ -144,7 +145,5 @@ public class PrinterUtil {
         mCommandList.addAll(mHexList);
         return ConvertUtil.hexList2Byte(mCommandList);
 
-
     }
-
 }

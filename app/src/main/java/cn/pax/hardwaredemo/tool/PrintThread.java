@@ -1,12 +1,14 @@
 package cn.pax.hardwaredemo.tool;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import cn.pax.hardwaredemo.util.BitmapUtil;
 import cn.pax.hardwaredemo.util.PrinterConstants;
 import cn.pax.hardwaredemo.util.PrinterUtil;
 
@@ -40,7 +42,9 @@ public class PrintThread implements Runnable {
         try {
             ByteArrayOutputStream mBaos = new ByteArrayOutputStream();
             mBaos.write(PrinterConstants.ESC_ALIGN_CENTER);
-            mBaos.write(PrinterUtil.decodeBitmap(BitmapFactory.decodeResource(mContext.getResources(), mResId)));
+            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), mResId);
+            Bitmap comp = BitmapUtil.comp(bitmap);
+            mBaos.write(PrinterUtil.decodeBitmap(comp));
             PrinterUtil.writeData(mContext, mBaos.toByteArray());
             PrinterUtil.writeData(mContext, PrinterConstants.FullCut);
             //PrinterUtil.writeData(mContext, new byte[]{0x1b, 0x23, 0x23, 0x43, 0x54, 0x46, 0x44, (byte) 0x12c});//切刀前走纸距离,无效
