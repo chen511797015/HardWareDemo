@@ -8,10 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static cn.pax.hardwaredemo.util.ConvertUtil.hexList2Byte;
-import static cn.pax.hardwaredemo.util.ConvertUtil.hexStringToBytes;
-import static cn.pax.hardwaredemo.util.ConvertUtil.sysCopy;
-
 
 /**
  * Created by chendd on 2017/1/5.
@@ -19,6 +15,7 @@ import static cn.pax.hardwaredemo.util.ConvertUtil.sysCopy;
  */
 
 public class PrinterUtil {
+    private static final String TAG = "PrinterUtil";
 
     static UsbAdmin mUsbAdmin;
 
@@ -64,6 +61,7 @@ public class PrinterUtil {
             mUsbAdmin.sendCommand(PrinterConstants.FullCut);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            Log.e(TAG, "print exception: " + e.getMessage());
         }
     }
 
