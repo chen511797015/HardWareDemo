@@ -94,6 +94,7 @@ public class UsbAdmin {
      */
     public void closeUsb() {
         if (mConnection != null) {
+            mConnection.close();
             mConnection = null;
         }
     }
