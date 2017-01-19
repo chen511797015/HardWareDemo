@@ -29,6 +29,9 @@ public class PrinterUtil {
         return mUsbAdmin;
     }
 
+    private PrinterUtil() {
+    }
+
 
     /**
      * 写入字节数据
@@ -37,6 +40,7 @@ public class PrinterUtil {
         if (mUsbAdmin == null) {
             getInstance(mContext);
         }
+        //mUsbAdmin.sendCommand(new byte[]{0x1b, 0x23, 0x23, 0x53, 0x54, 0x44, 0x50, 0x14});//设置打印机浓度
         mUsbAdmin.sendCommand(mCommand);
     }
 
@@ -133,7 +137,7 @@ public class PrinterUtil {
         // 高度指令
         String mHeightHexString = Integer.toHexString(mHeight);
         //TODO 原始值2
-        if (mHeightHexString.length() > 3) {
+        if (mHeightHexString.length() > 5) {
             Log.e("decodeBitmap error", "高度超出 height is too large" + mHeightHexString.length());
             return null;
         } else if (mHeightHexString.length() == 1) {

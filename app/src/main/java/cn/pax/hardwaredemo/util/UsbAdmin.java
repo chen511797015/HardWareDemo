@@ -56,33 +56,37 @@ public class UsbAdmin {
      * 打开Usb设备
      */
     public void openUsb() {
-
-        if (mDevice == null) {
-            // 获取USB设备
-            HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
-            if (deviceList.size() == 0) {
-                Log.d(TAG, "没有检测到USB设备!");
-                return;
-            }
-
-            Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
-            while (deviceIterator.hasNext()) {
-                UsbDevice device = deviceIterator.next();
-                //请求设备权限
-                mUsbManager.requestPermission(device, mPermissionIntent);
-            }
-        } else {
-            //设置USB设备信息
-            setDevice(mDevice);
-            if (mConnection != null) {
+        try {
+            if (mDevice == null) {
+                // 获取USB设备
+                HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
+                if (deviceList.size() == 0) {
+                    Log.d(TAG, "没有检测到USB设备!");
+                    return;
+                }
+                Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
+                while (deviceIterator.hasNext()) {
+                    UsbDevice device = deviceIterator.next();
+                    //请求设备权限
+                    mUsbManager.requestPermission(device, mPermissionIntent);
+                }
+            } else {
+                //设置USB设备信息
+                setDevice(mDevice);
+                //if (mConnection != null) {
                 HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
                 Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
                 while (deviceIterator.hasNext()) {
                     UsbDevice device = deviceIterator.next();
                     mUsbManager.requestPermission(device, mPermissionIntent);
                 }
+                //}
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(TAG, "openUsb Exception: " + e.getMessage());
         }
+
     }
 
     /**
@@ -180,6 +184,7 @@ public class UsbAdmin {
             }
             if (length < 0) {
                 Log.e(TAG, "数据传输失败: " + length);
+                openUsb();
                 return false;
             } else {
                 Log.e(TAG, "数据传输成功: " + length + "个字节");
@@ -230,14 +235,14 @@ public class UsbAdmin {
                     closeUsb();
                     return;
                 }
-                Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
-                while (deviceIterator.hasNext()) {
-                    UsbDevice device = deviceIterator.next();
-                    setDevice(device);
-                }
+                openUsb();
+//                Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
+//                while (deviceIterator.hasNext()) {
+//                    UsbDevice device = deviceIterator.next();
+//                    setDevice(device);
+//                }
             }
         }
     };
-
 
 }

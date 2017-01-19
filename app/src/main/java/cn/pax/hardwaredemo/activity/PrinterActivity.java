@@ -11,6 +11,7 @@ import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.tool.PrintThread;
 import cn.pax.hardwaredemo.util.PrinterUtil;
 import cn.pax.hardwaredemo.util.ToastUtil;
+import cn.pax.hardwaredemo.util.UsbAdmin;
 
 import static cn.pax.hardwaredemo.R.mipmap.pax_logo;
 
@@ -65,13 +66,20 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+
+        //首先判断一下打印机状态,没有连接,先申请连接
+        if (!PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus()) {
+            PrinterUtil.getInstance(this).openUsb();
+        }
         switch (v.getId()) {
             case R.id.btn_printer_bar_code:
                 Log.e(TAG, "打印条码");
                 if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
                     new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
-                else
+                else {
                     ToastUtil.showToast("请检查打印机状态!");
+                    //PrinterUtil.getInstance(this).openUsb();
+                }
                 break;
 
             case R.id.btn_printer_qr_code:

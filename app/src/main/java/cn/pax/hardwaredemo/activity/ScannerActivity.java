@@ -69,8 +69,10 @@ public class ScannerActivity extends BaseActivity {
             public void onClick(View v) {
                 if (PrinterUtil.getInstance(ScannerActivity.this).getUsbStatus())
                     new PrintThread(ScannerActivity.this, R.mipmap.bar_code_2).run();
-                else
+                else {
                     ToastUtil.showToast("请检查打印机状态!");
+                    PrinterUtil.getInstance(ScannerActivity.this).openUsb();
+                }
             }
         });
 
