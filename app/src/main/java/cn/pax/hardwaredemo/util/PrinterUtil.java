@@ -38,10 +38,13 @@ public class PrinterUtil {
      */
     public static void writeData(Context mContext, byte[] mCommand) {
         if (mUsbAdmin == null) {
-            getInstance(mContext);
+            getInstance(mContext).openUsb();
         }
-        //mUsbAdmin.sendCommand(new byte[]{0x1b, 0x23, 0x23, 0x53, 0x54, 0x44, 0x50, 0x14});//设置打印机浓度
-        mUsbAdmin.sendCommand(mCommand);
+        if (mUsbAdmin.getUsbStatus())
+            //mUsbAdmin.sendCommand(new byte[]{0x1b, 0x23, 0x23, 0x53, 0x54, 0x44, 0x50, 0x14});//设置打印机浓度
+            mUsbAdmin.sendCommand(mCommand);
+        else
+            mUsbAdmin.openUsb();
     }
 
 
@@ -53,9 +56,8 @@ public class PrinterUtil {
      */
     public static void writeData(Context mContext, String mCommand) {
         if (mUsbAdmin == null) {
-            getInstance(mContext);
+            getInstance(mContext).openUsb();
         }
-
         //byte[] SendCut = {0x0a, 0x0a, 0x1d, 0x56, 0x01};
         try {
             mUsbAdmin.sendCommand(mCommand.getBytes("GBK"));
