@@ -78,7 +78,6 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                     new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
                 else {
                     ToastUtil.showToast("请检查打印机状态!");
-                    //PrinterUtil.getInstance(this).openUsb();
                 }
                 break;
 

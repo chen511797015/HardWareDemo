@@ -6,10 +6,8 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
-import java.io.Serializable;
 import java.util.List;
 
-import static android.os.Build.VERSION_CODES.N;
 
 /**
  * Created by chendd on 2017/1/9.

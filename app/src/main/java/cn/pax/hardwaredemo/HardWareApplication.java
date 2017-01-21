@@ -17,11 +17,11 @@ public class HardWareApplication extends Application {
     private static final String TAG = "HardWareApplication";
 
     @Override
+
     public void onCreate() {
         super.onCreate();
         Logger.init(TAG);
         ToastUtil.init(this);
         PrinterUtil.getInstance(this).openUsb();
-
     }
 }

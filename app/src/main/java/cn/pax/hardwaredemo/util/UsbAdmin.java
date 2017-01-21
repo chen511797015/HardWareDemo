@@ -140,7 +140,6 @@ public class UsbAdmin {
                                     + "     方向是: " + mUsbInterfaceEndpoint.getDirection() +
                                     "       类型是: " + mUsbInterfaceEndpoint.getType());
                             break;
-
                         }
                     }
                     if (j != mUsbInterfaceEndpointCount) {
