@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -71,13 +70,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         cb_speaker.setOnClickListener(this);
         cb_camera.setOnClickListener(this);
 
-
     }
 
     @Override
     protected void init() {
 
         //初始化GridView数据
+        //HardWareApplication.getInstance();
 
     }
 

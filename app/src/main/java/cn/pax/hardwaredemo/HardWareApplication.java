@@ -16,8 +16,13 @@ public class HardWareApplication extends Application {
 
     private static final String TAG = "HardWareApplication";
 
-    @Override
+    HardWareApplication mHardWareApplication;
 
+    public static HardWareApplication getInstance() {
+        return new HardWareApplication();
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         Logger.init(TAG);
