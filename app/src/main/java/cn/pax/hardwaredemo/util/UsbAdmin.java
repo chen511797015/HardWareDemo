@@ -74,7 +74,7 @@ public class UsbAdmin {
             } else {
                 //设置USB设备信息
                 setDevice(mDevice);
-                //if (mConnection != null) {
+                //if (mConnection == null) {
                 HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
                 Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
                 while (deviceIterator.hasNext()) {
