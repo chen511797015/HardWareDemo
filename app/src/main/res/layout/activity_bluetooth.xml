@@ -7,7 +7,7 @@
     <!--Bluetooth-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -15,17 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_bluetooth_back"
             android:text="Bluetooth"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
 
@@ -42,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bluetooth connection"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
         <LinearLayout
-            android:layout_width="@dimen/dp1400"
+            android:layout_width="@dimen/dp1200"
             android:layout_height="@dimen/dp500"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
@@ -53,40 +53,38 @@
             <!--Select Nearby Bluetooth Signal,蓝牙开关-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/dp72"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="@dimen/dp5">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Select Nearby Bluetooth Signal"
-                    android:textSize="30sp" />
+                    android:textSize="@dimen/sp30" />
 
                 <Button
                     android:id="@+id/btn_bluetooth_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="@dimen/dp30"
                     android:background="@drawable/rectangle_corners_blue_gray"
-                    android:padding="10dp"
+                    android:padding="@dimen/dp10"
                     android:text="Settings"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="25sp" />
-
+                    android:textSize="@dimen/sp25" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
             <!--展示蓝牙设备-->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -97,15 +95,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
                 </ListView>
-
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
 
@@ -113,7 +109,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="@dimen/dp100">
 
                 <LinearLayout
                     android:id="@+id/ll_bluetooth_refresh"
@@ -133,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Refresh"
-                        android:textSize="30sp" />
+                        android:textSize="@dimen/sp30" />
                 </LinearLayout>
 
 

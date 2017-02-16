@@ -34,13 +34,13 @@
         <activity android:name=".activity.CashBoxActivity"></activity>
         <activity android:name=".activity.GenerationActivity" />
         <activity android:name=".activity.RouterActivity"></activity>
-        <activity android:name=".activity.NetWorkActivity">
+        <activity android:name=".activity.NetWorkActivity"></activity>
+        <activity android:name=".activity.BluetoothActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.BluetoothActivity"></activity>
         <activity android:name=".activity.SpeakerActivity"></activity>
         <activity android:name=".activity.CameraActivity"></activity>
         <activity android:name=".activity.CameraTestActivity"></activity>

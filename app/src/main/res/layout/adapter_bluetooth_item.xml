@@ -8,35 +8,35 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/dp20"
         android:src="@mipmap/bluetooth_small" />
 
     <TextView
         android:id="@+id/tv_bluetooth_name_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/dp20"
         android:layout_weight="1"
         android:text="termination"
-        android:textSize="30sp" />
+        android:textSize="@dimen/sp30" />
 
     <TextView
         android:id="@+id/tv_bluetooth_address_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/dp20"
         android:layout_weight="1.5"
         android:text="B0:E2:35:A1:87:34"
-        android:textSize="30sp" />
+        android:textSize="@dimen/sp30" />
 
 
     <TextView
         android:id="@+id/tv_bluetooth_connected_show"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/dp20"
         android:layout_weight="1"
         android:text="Connected"
-        android:textSize="30sp" />
+        android:textSize="@dimen/sp30" />
 
 </LinearLayout>
