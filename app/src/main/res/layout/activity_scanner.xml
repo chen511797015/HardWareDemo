@@ -7,7 +7,7 @@
     <!--Scanning Gun-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -15,18 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_scanner_back"
             android:text="Scanning Gun"
-            android:textSize="30sp" />
-
+            android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
 
@@ -43,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Scanning Gun Test"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
         <LinearLayout
-            android:layout_width="@dimen/dp500"
+            android:layout_width="@dimen/dp600"
             android:layout_height="@dimen/dp320"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
@@ -70,15 +69,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
                         android:background="@null"
                         android:drawableTop="@mipmap/btn_print"
                         android:text="print bar code"
                         android:textAllCaps="false"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
 
                     <View
-                        android:layout_width="30dp"
+                        android:layout_width="@dimen/dp30"
                         android:layout_height="match_parent"></View>
 
                     <!--条码-->
@@ -91,20 +91,18 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:adjustViewBounds="true"
-                            android:src="@mipmap/bar_code" />
+                            android:src="@mipmap/bar_code_2" />
 
                     </RelativeLayout>
 
-
                 </LinearLayout>
-
 
             </RelativeLayout>
 
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
             <!--扫描得到的条码-->
@@ -131,7 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="Scan the bar code:"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/sp30" />
 
                     </RelativeLayout>
 
@@ -146,7 +144,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:background="@drawable/rectangle_white_gray"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/sp30" />
 
                     </RelativeLayout>
 

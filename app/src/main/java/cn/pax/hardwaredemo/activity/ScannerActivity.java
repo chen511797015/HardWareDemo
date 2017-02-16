@@ -60,7 +60,6 @@ public class ScannerActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 Log.i(TAG, "编辑框文本变化 " + s.toString());
                 iv_scanner_ok.setVisibility(View.VISIBLE);
-
             }
         });
 
