@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/dp20"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -20,9 +20,9 @@
                 android:id="@+id/tv_net_name_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="@dimen/dp30"
                 android:text="pax-1"
-                android:textSize="25sp" />
+                android:textSize="@dimen/sp25" />
 
         </LinearLayout>
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="connected"
-                android:textSize="25sp"
+                android:textSize="@dimen/sp25"
                 android:visibility="invisible" />
 
 
@@ -55,8 +55,8 @@
                 android:id="@+id/iv_net_wifi_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
                 android:src="@mipmap/signer4" />
         </LinearLayout>
 
