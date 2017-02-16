@@ -7,7 +7,7 @@
     <!--Printer-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -15,17 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_printer_back"
             android:text="Printer"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
 
     </RelativeLayout>
@@ -43,11 +43,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Printer Test"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
         <LinearLayout
-            android:layout_width="@dimen/dp600"
-            android:layout_height="@dimen/dp400"
+            android:layout_width="@dimen/dp900"
+            android:layout_height="@dimen/dp450"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
 
@@ -71,10 +71,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:adjustViewBounds="true"
-                        android:src="@mipmap/bar_code" />
-
+                        android:src="@mipmap/bar_code_2" />
                 </RelativeLayout>
-
 
                 <!--二维码-->
                 <RelativeLayout
@@ -107,10 +105,9 @@
                 </RelativeLayout>
             </LinearLayout>
 
-
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
             <!--条码打印,二维码打印,全黑打印-->
@@ -141,7 +138,7 @@
                             android:drawableTop="@mipmap/btn_print"
                             android:text="print bar code"
                             android:textAllCaps="false"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </RelativeLayout>
 
 
@@ -161,7 +158,7 @@
                             android:drawableTop="@mipmap/btn_print"
                             android:text="print QR code"
                             android:textAllCaps="false"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                     </RelativeLayout>
 
@@ -181,7 +178,8 @@
                             android:drawableTop="@mipmap/btn_print"
                             android:text="print black square"
                             android:textAllCaps="false"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
+
                     </RelativeLayout>
                 </LinearLayout>
 
