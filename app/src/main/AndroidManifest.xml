@@ -27,13 +27,14 @@
         </activity>
         <activity android:name=".activity.DeviceActivity"></activity>
         <activity android:name=".activity.ScreenActivity">
+
+        </activity>
+        <activity android:name=".activity.TouchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TouchActivity"></activity>
         <activity android:name=".activity.PrinterActivity"></activity>
         <activity android:name=".activity.ScannerActivity"></activity>
         <activity android:name=".activity.ScreenTestActivity" />
