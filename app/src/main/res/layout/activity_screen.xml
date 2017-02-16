@@ -101,7 +101,7 @@
                             android:id="@+id/rb_screen_different"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="110dp"
+                            android:layout_marginTop="@dimen/dp110"
                             android:button="@drawable/rb_bg_screen"
                             android:text="  Different"
                             android:textSize="@dimen/sp25" />
