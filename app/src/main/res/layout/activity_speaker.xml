@@ -8,7 +8,7 @@
     <!--Speaker-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -16,17 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_speaker_back"
             android:text="Speaker"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
 
     </RelativeLayout>
@@ -44,10 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Speaker Test"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
         <LinearLayout
-            android:layout_width="@dimen/dp400"
+            android:layout_width="@dimen/dp600"
             android:layout_height="@dimen/dp320"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
@@ -67,14 +67,14 @@
 
                     <Button
                         android:id="@+id/btn_speaker_play"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="@dimen/dp150"
+                        android:layout_height="@dimen/dp150"
                         android:background="@mipmap/play" />
 
                     <Button
                         android:id="@+id/btn_speaker_stop"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="@dimen/dp150"
+                        android:layout_height="@dimen/dp150"
                         android:background="@mipmap/stop" />
 
 
@@ -86,7 +86,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
             <!--Volume:    进度条-->
@@ -100,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_margin="30dp">
+                    android:layout_margin="@dimen/dp30">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Volume: "
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:id="@+id/tv_speaker_volume"
@@ -119,18 +119,18 @@
                             android:layout_height="wrap_content"
                             android:text="6"
                             android:textColor="#ff00"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </LinearLayout>
 
                     <SeekBar
                         android:id="@+id/sb_speaker_volume"
-                        android:layout_width="@dimen/dp250"
+                        android:layout_width="@dimen/dp300"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:max="15"
-                        android:maxHeight="4px"
-                        android:minHeight="4px"
+                        android:maxHeight="@dimen/dp4"
+                        android:minHeight="@dimen/dp4"
                         android:progressDrawable="@drawable/seek_bar_bg"
                         android:thumb="@mipmap/seek_thumb" />
 

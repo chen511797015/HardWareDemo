@@ -51,17 +51,14 @@ public class CameraActivity extends BaseActivity {
     private PrintQrCodeThread mThread;
     private Bitmap bitmap;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "初始化Camera界面...");
         super.onCreate(savedInstanceState, R.layout.activity_camera);
-
     }
 
     @Override
     protected void findView() {
-
         //绑定ButterKnife
         ButterKnife.bind(this);
 

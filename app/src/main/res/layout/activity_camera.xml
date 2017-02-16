@@ -9,7 +9,7 @@
     <!--Camera-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -17,17 +17,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_camera_back"
             android:text="Camera"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
     </RelativeLayout>
 
 
@@ -49,18 +49,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Camera Test"
-                android:textSize="30sp" />
-
-
+                android:textSize="@dimen/sp30" />
         </RelativeLayout>
 
-
         <LinearLayout
-            android:layout_width="700dp"
-            android:layout_height="500dp"
+            android:layout_width="@dimen/dp700"
+            android:layout_height="@dimen/dp500"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +77,7 @@
                 </RelativeLayout>
 
                 <View
-                    android:layout_width="2dp"
+                    android:layout_width="@dimen/dp2"
                     android:layout_height="match_parent"
                     android:background="#e1e1e1"></View>
 
@@ -103,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Code you scanned"
-                        android:textSize="25sp"
+                        android:textSize="@dimen/sp25"
                         android:visibility="gone" />
 
 
@@ -114,13 +110,13 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="@dimen/dp150"
                 android:orientation="horizontal">
 
 
@@ -138,12 +134,12 @@
                         android:drawableTop="@mipmap/btn_print"
                         android:text="Print QR Code"
                         android:textAllCaps="false"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </RelativeLayout>
 
                 <View
-                    android:layout_width="2dp"
+                    android:layout_width="@dimen/dp2"
                     android:layout_height="match_parent"
                     android:background="#e1e1e1"></View>
 
@@ -158,11 +154,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:background="@drawable/rectangle_corners_blue_gray"
-                        android:padding="20dp"
+                        android:padding="@dimen/dp20"
                         android:text="@string/test_zxing"
                         android:textAllCaps="false"
                         android:textColor="#ffffff"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
 
                 </RelativeLayout>

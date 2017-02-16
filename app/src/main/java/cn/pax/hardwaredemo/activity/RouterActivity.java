@@ -64,7 +64,8 @@ public class RouterActivity extends BaseActivity {
     }
 
     private void initWebView() {
-        final String mUrlString = "https://www.hao123.com/";
+        // final String mUrlString = "https://www.hao123.com/";
+        final String mUrlString = "http://10.10.10.252/";
         wvRouterTest.loadUrl(mUrlString);
         mWebSettings = wvRouterTest.getSettings();
         mWebSettings.setJavaScriptEnabled(true);

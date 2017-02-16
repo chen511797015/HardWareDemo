@@ -49,7 +49,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
+            
             <ProgressBar
                 style="@style/publicloadingProgressStyle"
                 android:layout_width="wrap_content"

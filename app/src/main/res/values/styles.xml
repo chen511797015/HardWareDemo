@@ -32,5 +32,13 @@
         <item name="android:minHeight">104dip</item>
     </style>
 
+    <!--<style name="publicloadingProgressStyle">-->
+    <!--<item name="android:maxWidth">108dip</item>-->
+    <!--<item name="android:maxHeight">104dip</item>-->
+    <!--<item name="android:indeterminateDrawable">@drawable/wb_loading_frame</item>-->
+    <!--<item name="android:minWidth">108dip</item>-->
+    <!--<item name="android:minHeight">104dip</item>-->
+    <!--</style>-->
+
 
 </resources>
