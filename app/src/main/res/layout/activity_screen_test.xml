@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:layout_alignParentBottom="true"
         android:background="#000000"
         android:gravity="center"
@@ -27,8 +27,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:maxHeight="4dp"
-            android:minHeight="4dp"
+            android:maxHeight="@dimen/dp4"
+            android:minHeight="@dimen/dp4"
             android:progressDrawable="@drawable/seek_bar_bg"
             android:thumb="@mipmap/seek_thumb" />
 

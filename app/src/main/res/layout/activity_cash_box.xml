@@ -8,7 +8,7 @@
     <!--CashBox-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">
 
         <ImageView
@@ -16,17 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_cash_box_back"
             android:text="CashBox"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
 
     </RelativeLayout>
@@ -43,11 +43,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CashBox Test"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
 
 
         <LinearLayout
-            android:layout_width="@dimen/dp400"
+            android:layout_width="@dimen/dp600"
             android:layout_height="@dimen/dp350"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
@@ -63,19 +63,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_margin="30dp"
+                    android:layout_margin="@dimen/dp30"
                     android:background="@drawable/btn_bg_cash_box"
-                    android:padding="20dp"
+                    android:padding="@dimen/dp20"
                     android:text="Open"
                     android:textColor="@color/color_white_black"
-                    android:textSize="30sp" />
+                    android:textSize="@dimen/sp30" />
             </RelativeLayout>
-
 
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/dp2"
                 android:background="#e1e1e1"></View>
 
 
@@ -89,9 +88,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_margin="30dp"
+                    android:layout_margin="@dimen/dp30"
                     android:text="@string/note_cash_box"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/sp25" />
 
             </RelativeLayout>
 
