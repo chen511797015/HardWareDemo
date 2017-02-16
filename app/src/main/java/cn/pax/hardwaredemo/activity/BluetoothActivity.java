@@ -145,9 +145,13 @@ public class BluetoothActivity extends BaseActivity {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         //判断是否拥有蓝牙设备
         if (mBluetoothAdapter == null) {
-            ToastUtil.showToast("该设备不支持蓝牙!");
+            // ToastUtil.showToast("该设备不支持蓝牙!");
+            ToastUtil.showToast("The device does not support Bluetooth!");
+
         } else {
-            ToastUtil.showToast("本机拥有蓝牙设备!");
+            // ToastUtil.showToast("本机拥有蓝牙设备!");
+            ToastUtil.showToast("Bluetooth device!");
+
         }
 
 
@@ -289,8 +293,8 @@ public class BluetoothActivity extends BaseActivity {
                         ll_bluetooth_refresh.setClickable(false);
                         mBluetoothList.clear();
                         mAdapter.notifyDataSetChanged();
-
                         break;
+
                 }
             }
         }

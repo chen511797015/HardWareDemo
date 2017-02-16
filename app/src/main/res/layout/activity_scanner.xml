@@ -46,8 +46,8 @@
             android:textSize="30sp" />
 
         <LinearLayout
-            android:layout_width="@dimen/y250"
-            android:layout_height="@dimen/x160"
+            android:layout_width="@dimen/dp500"
+            android:layout_height="@dimen/dp320"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
 

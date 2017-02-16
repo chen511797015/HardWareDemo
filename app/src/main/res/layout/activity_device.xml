@@ -8,7 +8,7 @@
     <!--Device Info-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/dp70"
         android:background="#e1e1e1">
 
         <ImageView
@@ -16,17 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/back_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_device_back"
             android:text="Device Info"
-            android:textSize="30sp" />
+            android:textSize="@dimen/sp30" />
     </RelativeLayout>
 
     <LinearLayout
@@ -38,10 +38,10 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp20"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -54,14 +54,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="@dimen/dp48">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Main Board"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </RelativeLayout>
 
@@ -93,13 +93,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Model"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:id="@+id/tv_device_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RK3288" />
+                                android:text="RK3288"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -116,13 +117,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Android Version"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:id="@+id/tv_device_version"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="5.1" />
+                                android:text="5.1"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -130,7 +132,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Ram,Rom-->
@@ -153,12 +155,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Ram"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2G" />
+                                android:text="2G"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -175,12 +178,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rom"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="16G" />
+                                android:text="16G"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -188,7 +192,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--WLAN MAC, LAN MAC-->
@@ -211,13 +215,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="WLAN MAC"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:id="@+id/tv_device_wlan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="a2:1d:cq:60:00:00:01" />
+                                android:text="a2:1d:cq:60:00:00:01"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -234,13 +239,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="LAN MAC"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:id="@+id/tv_device_lan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="a2:1d:cq:60:00:00:01" />
+                                android:text="a2:1d:cq:60:00:00:01"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -262,14 +268,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="@dimen/dp48">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Main Screen"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </RelativeLayout>
 
@@ -301,12 +307,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Size"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="15.6" />
+                                android:text="15.6"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -323,12 +330,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Resolution"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1920x1080     16:9" />
+                                android:text="1920x1080     16:9"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -336,7 +344,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Type,Interface-->
@@ -359,12 +367,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Type"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IPS" />
+                                android:text="IPS"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -381,12 +390,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Interface"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="edp" />
+                                android:text="edp"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -394,7 +404,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Touchpanel Material, Touch Number-->
@@ -417,12 +427,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Touchpanel Material"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="G+G Capacitance" />
+                                android:text="G+G Capacitance"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -439,21 +450,17 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Touch Number"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10 point" />
-
+                                android:text="10 point"
+                                android:textSize="@dimen/sp15" />
 
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
-
-
             </LinearLayout>
 
 
@@ -466,14 +473,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="@dimen/dp48">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Customer Screen"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </RelativeLayout>
 
@@ -505,12 +512,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Size"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="8" />
+                                android:text="8"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -527,12 +535,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Resolution"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="800x1280      16:10" />
+                                android:text="800x1280      16:10"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -540,7 +549,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Type,Interface-->
@@ -563,12 +572,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Type"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IPS" />
+                                android:text="IPS"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -585,12 +595,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Interface"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="mipi" />
+                                android:text="mipi"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -598,7 +609,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Touchpanel Material, Touch Number-->
@@ -621,12 +632,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Touchpanel Material"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="G+G Capacitance" />
+                                android:text="G+G Capacitance"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -643,12 +655,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Touch Number"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10 point" />
+                                android:text="10 point"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -667,10 +680,10 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp20"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -684,14 +697,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="@dimen/dp48">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Printer"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </RelativeLayout>
 
@@ -716,12 +729,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Type"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="mute thermal printer with cutter" />
+                            android:text="mute thermal printer with cutter"
+                            android:textSize="@dimen/sp15" />
 
 
                     </LinearLayout>
@@ -739,12 +753,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Paper roll"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="80mm" />
+                            android:text="80mm"
+                            android:textSize="@dimen/sp15" />
 
 
                     </LinearLayout>
@@ -753,7 +768,6 @@
 
 
             </LinearLayout>
-
 
             <!--Camera ,Battery-->
             <LinearLayout
@@ -771,14 +785,14 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp">
+                        android:layout_height="@dimen/dp48">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="Camera"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </RelativeLayout>
 
                     <LinearLayout
@@ -793,12 +807,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Type"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5 million zoom" />
+                            android:text="5 million zoom"
+                            android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
 
@@ -806,7 +821,7 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_width="20dp"
+                    android:layout_width="@dimen/dp20"
                     android:layout_height="match_parent" />
 
                 <!--Battery-->
@@ -818,14 +833,14 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp">
+                        android:layout_height="@dimen/dp48">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="Battery"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </RelativeLayout>
 
                     <LinearLayout
@@ -840,12 +855,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Capacity"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2000mAh" />
+                            android:text="2000mAh"
+                            android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
 
@@ -854,7 +870,6 @@
 
 
             </LinearLayout>
-
 
             <!--WIFI ,Bluetooth-->
             <LinearLayout
@@ -872,14 +887,14 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp">
+                        android:layout_height="@dimen/dp48">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="WIFI"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </RelativeLayout>
 
                     <LinearLayout
@@ -894,12 +909,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Frequency"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2.4G/5G" />
+                            android:text="2.4G/5G"
+                            android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
 
@@ -919,14 +935,14 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp">
+                        android:layout_height="@dimen/dp48">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="Bluetooth"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
                     </RelativeLayout>
 
                     <LinearLayout
@@ -941,12 +957,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="info"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/sp25" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="BT4.0+EDR+BLE" />
+                            android:text="BT4.0+EDR+BLE"
+                            android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
 
@@ -956,26 +973,25 @@
 
             </LinearLayout>
 
-
             <!--Router-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/dp30"
                 android:layout_weight="3"
                 android:orientation="vertical">
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp">
+                    android:layout_height="@dimen/dp48">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Router"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
                 </RelativeLayout>
 
 
@@ -1007,12 +1023,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Model"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="MT7628K" />
+                                android:text="MT7628K"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1029,12 +1046,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Operating System"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ecos" />
+                                android:text="Ecos"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1042,7 +1060,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Ram,Rom-->
@@ -1065,12 +1083,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Ram"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2M" />
+                                android:text="2M"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1087,12 +1106,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rom"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="8M" />
+                                android:text="8M"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1100,7 +1120,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
 
                     <!--Frequency, MAC-->
@@ -1123,12 +1143,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Frequency"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2.4G" />
+                                android:text="2.4G"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1145,13 +1166,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="MAC"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:id="@+id/tv_device_router_mac"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="a2:1d:cq:60:00:00:01" />
+                                android:text="a2:1d:cq:60:00:00:01"
+                                android:textSize="@dimen/sp15" />
 
 
                         </LinearLayout>
@@ -1159,7 +1181,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="@dimen/dp2"
                         android:background="#e1e1e1"></View>
                     <!--Agreement-->
                     <LinearLayout
@@ -1179,27 +1201,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Agreement"
-                                android:textSize="25sp" />
+                                android:textSize="@dimen/sp25" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IEEE802.11/b/g/n IEEE802.3 IEEE802.3 IPv4.ARRDHCP.PPP.HTTP.ICMP" />
+                                android:text="IEEE802.11/b/g/n IEEE802.3 IEEE802.3 IPv4.ARRDHCP.PPP.HTTP.ICMP"
+                                android:textSize="@dimen/sp15" />
 
                         </LinearLayout>
-
                     </LinearLayout>
-
-
                 </LinearLayout>
-
-
             </LinearLayout>
-
-
         </LinearLayout>
-
     </LinearLayout>
-
 
 </LinearLayout>

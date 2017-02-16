@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/rl_main_content_1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/dp60"
         android:background="#e1e1e1">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="HardWare Platform"
-            android:textSize="25sp" />
+            android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
 
@@ -28,12 +28,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="@dimen/dp36"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
         android:layout_weight="1"
         android:background="@drawable/rectangle_white_gray"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="1dp">
 
 
         <!--本机,屏幕,点击,打印,扫码,钱箱-->
@@ -68,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:text="Device info"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -102,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:text="Screen"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -136,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:text="Touchpanel"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -171,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:text="Printer"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -206,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:text="Scanning gun"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -243,7 +244,7 @@
                         android:layout_height="wrap_content"
                         android:text="CashBox"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -286,7 +287,7 @@
                         android:layout_height="wrap_content"
                         android:text="3G/4G"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -321,7 +322,7 @@
                         android:layout_height="wrap_content"
                         android:text="Router"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -356,7 +357,7 @@
                         android:layout_height="wrap_content"
                         android:text="NetWork"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -391,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:text="Bluetooth"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -426,7 +427,7 @@
                         android:layout_height="wrap_content"
                         android:text="Speaker"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 
@@ -461,7 +462,7 @@
                         android:layout_height="wrap_content"
                         android:text="Camera"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/sp25" />
 
                 </LinearLayout>
 

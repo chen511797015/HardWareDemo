@@ -56,7 +56,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initEvent() {
-
         cb_device_info.setOnClickListener(this);
         cb_screen.setOnClickListener(this);
         cb_touchpanel.setOnClickListener(this);
@@ -69,15 +68,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         cb_bluetooth.setOnClickListener(this);
         cb_speaker.setOnClickListener(this);
         cb_camera.setOnClickListener(this);
-
     }
 
     @Override
     protected void init() {
-
         //初始化GridView数据
         //HardWareApplication.getInstance();
-
     }
 
     int index = 0;
@@ -112,7 +108,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.cb_3g_4g:
                 //TODO 3G/4G --后续开发
                 index = 6;
-
                 break;
             case R.id.cb_router:
                 //TODO 路由器

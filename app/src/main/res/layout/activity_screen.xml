@@ -46,7 +46,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x178"
+            android:layout_height="@dimen/dp200"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
@@ -199,8 +199,8 @@
 
         <!--Screen Test-->
         <LinearLayout
-            android:layout_width="@dimen/y271"
-            android:layout_height="@dimen/x178"
+            android:layout_width="@dimen/dp500"
+            android:layout_height="@dimen/dp300"
             android:layout_marginRight="30dp"
             android:orientation="vertical">
 

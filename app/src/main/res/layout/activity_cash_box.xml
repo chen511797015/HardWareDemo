@@ -47,8 +47,8 @@
 
 
         <LinearLayout
-            android:layout_width="@dimen/y209"
-            android:layout_height="@dimen/x175"
+            android:layout_width="@dimen/dp400"
+            android:layout_height="@dimen/dp350"
             android:background="@drawable/rectangle_corners_white_gray"
             android:orientation="vertical">
 
