@@ -1,14 +1,15 @@
 package cn.pax.hardwaredemo.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.util.PhoneAdmin;
@@ -36,6 +37,8 @@ public class DeviceActivity extends BaseActivity {
     TextView mTvDeviceRouterMac;//Router mac号
     @BindView(R.id.activity_device)
     LinearLayout mActivityDevice;
+    @BindView(R.id.m_rl_back)
+    RelativeLayout mRlBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,5 +74,10 @@ public class DeviceActivity extends BaseActivity {
         mTvDeviceWlan.setText(mPhoneAdmin.getWlanMacAddress());
         mTvDeviceRouterMac.setText(mPhoneAdmin.getRouterMacAddress());
 
+    }
+
+    @OnClick(R.id.m_rl_back)
+    public void onClick() {
+        onBackPressed();
     }
 }

@@ -21,6 +21,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -47,6 +48,7 @@ import cn.pax.hardwaredemo.util.WifiAdmin;
 public class NetWorkActivity extends BaseActivity {
     private static final String TAG = "NetWorkActivity";
     ImageView iv_network_back;//返回按钮
+    RelativeLayout m_rl_back;
 
 
     //---------------------Left------------------------
@@ -96,6 +98,7 @@ public class NetWorkActivity extends BaseActivity {
     protected void findView() {
 
         iv_network_back = (ImageView) findViewById(R.id.iv_network_back);
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
         btn_net_settings = (Button) findViewById(R.id.btn_net_settings);
         lv_net_show = (ListView) findViewById(R.id.lv_net_show);
         ll_net_refresh = (LinearLayout) findViewById(R.id.ll_net_refresh);
@@ -128,6 +131,12 @@ public class NetWorkActivity extends BaseActivity {
     protected void initEvent() {
 
         iv_network_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

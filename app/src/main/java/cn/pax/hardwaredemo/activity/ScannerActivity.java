@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -25,6 +26,7 @@ public class ScannerActivity extends BaseActivity {
     ImageView iv_scanner_ok;//显示扫码成功
     Button btn_scanner_bar_code;//条码打印
     ImageView iv_scanner_back;//返回健
+    RelativeLayout m_rl_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class ScannerActivity extends BaseActivity {
         iv_scanner_ok = (ImageView) findViewById(R.id.iv_scanner_ok);
         btn_scanner_bar_code = (Button) findViewById(R.id.btn_scanner_bar_code);
         iv_scanner_back = (ImageView) findViewById(R.id.iv_scanner_back);
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
 
     }
 
@@ -80,6 +83,12 @@ public class ScannerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

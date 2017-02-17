@@ -19,18 +19,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.adapter.BluetoothShowAdapter;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.util.ToastUtil;
-
-import static android.bluetooth.BluetoothDevice.ACTION_BOND_STATE_CHANGED;
 
 
 /**
@@ -42,6 +40,7 @@ public class BluetoothActivity extends BaseActivity {
     private static final String TAG = "BluetoothActivity";
 
     ImageView iv_bluetooth_back;//返回按钮
+    RelativeLayout m_rl_back;
     LinearLayout ll_bluetooth_refresh;//刷新蓝牙设备
     ImageView iv_bluetooth_refresh;//刷新旋转图标
     Button btn_bluetooth_settings;//蓝牙设置,跳转到蓝牙设置界面
@@ -68,7 +67,9 @@ public class BluetoothActivity extends BaseActivity {
         iv_bluetooth_refresh = (ImageView) findViewById(R.id.iv_bluetooth_refresh);
         lv_bluetooth_show = (ListView) findViewById(R.id.lv_bluetooth_show);
         iv_bluetooth_back = (ImageView) findViewById(R.id.iv_bluetooth_back);
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
         btn_bluetooth_settings = (Button) findViewById(R.id.btn_bluetooth_settings);
+
 
         initBluetooth();
 
@@ -81,6 +82,12 @@ public class BluetoothActivity extends BaseActivity {
 
 
         iv_bluetooth_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

@@ -2,7 +2,6 @@ package cn.pax.hardwaredemo.activity;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -11,6 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +36,8 @@ public class RouterActivity extends BaseActivity {
     LinearLayout mShowAnim;
     @BindView(R.id.activity_router)
     LinearLayout activityRouter;
+    @BindView(R.id.m_rl_back)
+    RelativeLayout mRlBack;
 
 
     @Override
@@ -135,5 +137,10 @@ public class RouterActivity extends BaseActivity {
         if (wvRouterTest != null) {
             wvRouterTest.destroy();
         }
+    }
+
+    @OnClick(R.id.m_rl_back)
+    public void onClick() {
+        finish();
     }
 }

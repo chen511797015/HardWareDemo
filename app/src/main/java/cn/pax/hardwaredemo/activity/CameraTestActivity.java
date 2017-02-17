@@ -3,10 +3,10 @@ package cn.pax.hardwaredemo.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.journeyapps.barcodescanner.CaptureManager;
@@ -37,6 +37,8 @@ public class CameraTestActivity extends BaseAppCompatActivity {
 
 
     CaptureManager mCaptureManager;//捕捉管理器
+    @BindView(R.id.m_rl_back)
+    LinearLayout mRlBack;
 
 
     @Override
@@ -109,5 +111,10 @@ public class CameraTestActivity extends BaseAppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @OnClick(R.id.m_rl_back)
+    public void onClick() {
+        onBackPressed();
     }
 }

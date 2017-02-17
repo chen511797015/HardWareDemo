@@ -2,12 +2,12 @@ package cn.pax.hardwaredemo.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -24,7 +24,6 @@ import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.tool.PrintThread;
 import cn.pax.hardwaredemo.util.PrinterConstants;
 import cn.pax.hardwaredemo.util.PrinterUtil;
-import cn.pax.hardwaredemo.util.QrCodeUtil;
 import cn.pax.hardwaredemo.util.ToastUtil;
 
 
@@ -48,6 +47,10 @@ public class CameraActivity extends BaseActivity {
     TextView tv_camera_show;
 
     boolean isBitmapChanged = false;//是否打印扫描的二维码  false--不打印  true--打印
+    @BindView(R.id.m_rl_back)
+    RelativeLayout mRlBack;
+    @BindView(R.id.activity_camera)
+    RelativeLayout activityCamera;
     private PrintQrCodeThread mThread;
     private Bitmap bitmap;
 
@@ -149,6 +152,10 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
+    @OnClick(R.id.m_rl_back)
+    public void onClick() {
+        onBackPressed();
+    }
 
     class PrintQrCodeThread extends Thread {
 

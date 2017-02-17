@@ -6,6 +6,7 @@
 
     <!--Printer-->
     <RelativeLayout
+        android:id="@+id/m_rl_back"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp72"
         android:background="#e1e1e1">

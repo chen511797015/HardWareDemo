@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
     private static final String TAG = "SpeakerActivity";
 
     ImageView iv_speaker_back;//返回
+    RelativeLayout m_rl_back;
     Button btn_speaker_play;//播放,暂停
     Button btn_speaker_stop;//停止
     TextView tv_speaker_volume;//音量大小
@@ -47,6 +49,7 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void findView() {
         iv_speaker_back = (ImageView) findViewById(R.id.iv_speaker_back);
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
         btn_speaker_play = (Button) findViewById(R.id.btn_speaker_play);
         btn_speaker_stop = (Button) findViewById(R.id.btn_speaker_stop);
 
@@ -61,6 +64,12 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
 
         //返回
         iv_speaker_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

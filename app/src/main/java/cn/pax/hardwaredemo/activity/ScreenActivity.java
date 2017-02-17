@@ -15,15 +15,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import javax.security.auth.login.LoginException;
-
+import butterknife.BindView;
+import butterknife.OnClick;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
-import cn.pax.hardwaredemo.util.PhoneUtil;
 
 public class ScreenActivity extends BaseActivity implements View.OnClickListener {
 
@@ -43,6 +43,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
     ToggleButton tb_screen_automatic;//亮度自动调节按钮
     SeekBar sb_screen_brightness;//亮度调节进度条
     ViceScreen mViceScreen;
+    RelativeLayout m_rl_back;
 
 
     @Override
@@ -68,6 +69,8 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
         sb_screen_brightness = (SeekBar) findViewById(R.id.sb_screen_brightness);
         sb_screen_brightness.setMax(255);
 
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
+
 
     }
 
@@ -80,6 +83,13 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
         btn_screen_test.setOnClickListener(this);
 
         setOnSeekBarChangedListener();
+
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
     }

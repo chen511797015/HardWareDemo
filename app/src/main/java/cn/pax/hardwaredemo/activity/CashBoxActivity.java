@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -23,6 +24,7 @@ public class CashBoxActivity extends BaseActivity {
 
     Button btn_cash_box_open;// 打开钱箱
     ImageView iv_cash_box_back;//返回
+    RelativeLayout m_rl_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class CashBoxActivity extends BaseActivity {
 
         btn_cash_box_open = (Button) findViewById(R.id.btn_cash_box_open);
         iv_cash_box_back = (ImageView) findViewById(R.id.iv_cash_box_back);
+        m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
 
     }
 
@@ -56,6 +59,13 @@ public class CashBoxActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //finish();
+                onBackPressed();
+            }
+        });
+
+        m_rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 onBackPressed();
             }
         });
