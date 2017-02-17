@@ -184,7 +184,7 @@ public class NetWorkActivity extends BaseActivity {
         //初始化wifi信息
         mWifiAdmin = new WifiAdmin(this);
         mWifiAdmin.openWifi();
-        ToastUtil.showToast("当前Wifi状态为: " + mWifiAdmin.checkWifiStatus());
+        //ToastUtil.showToast("当前Wifi状态为: " + mWifiAdmin.checkWifiStatus());
         mWifiInfo = mWifiAdmin.getWifiInfo();
         initMyView();
         startAnimAndSearchWifi();
@@ -208,7 +208,7 @@ public class NetWorkActivity extends BaseActivity {
                     tv_net_ping_gateway.setText(intToIp(mWifiInfo.getIpAddress()));
                     iv_net_show_start.setVisibility(View.VISIBLE);
                 }
-                ToastUtil.showToast("WIFI测试...");
+                //ToastUtil.showToast("WIFI测试...");
             }
         });
     }
@@ -345,8 +345,6 @@ public class NetWorkActivity extends BaseActivity {
             if (WifiManager.SCAN_RESULTS_AVAILABLE_ACTION.equals(action)) {//扫描完成
                 startAnimAndSearchWifi();
             }
-
-
         }
     };
 }

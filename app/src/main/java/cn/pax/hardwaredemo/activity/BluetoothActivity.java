@@ -69,8 +69,6 @@ public class BluetoothActivity extends BaseActivity {
         iv_bluetooth_back = (ImageView) findViewById(R.id.iv_bluetooth_back);
         m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
         btn_bluetooth_settings = (Button) findViewById(R.id.btn_bluetooth_settings);
-
-
         initBluetooth();
 
     }
