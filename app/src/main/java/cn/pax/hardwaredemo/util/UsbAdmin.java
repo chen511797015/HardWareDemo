@@ -11,6 +11,7 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
+import android.os.Handler;
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
@@ -147,12 +148,10 @@ public class UsbAdmin {
                     }
                 }
             }
-
             if (i == interfaceCount) {
                 Log.i(TAG, "没有打印机接口");
                 return;
             }
-
             // 建立USB连接
             if (device != null && mUsbInterface != null) {
                 UsbDeviceConnection connection = mUsbManager.openDevice(device);
@@ -177,6 +176,7 @@ public class UsbAdmin {
      * @return
      */
     public boolean sendCommand(byte[] mCommand) {
+        boolean mResult;
         synchronized (this) {
             int length = -1;
             if (mConnection != null) {
@@ -185,13 +185,15 @@ public class UsbAdmin {
             }
             if (length < 0) {
                 Log.e(TAG, "数据传输失败: " + length);
+                mResult = false;
                 openUsb();
-                return false;
+                //判断没有连接继续连接发送数据
             } else {
                 Log.e(TAG, "数据传输成功: " + length + "个字节");
-                return true;
+                mResult = true;
             }
         }
+        return mResult;
     }
 
 
@@ -212,7 +214,6 @@ public class UsbAdmin {
                             setDevice(device);
                             Log.d(TAG, "获取USB权限成功!");
                         }
-
                     } else {
                         Log.d(TAG, "无法获取usb权限: " + device);
                     }
