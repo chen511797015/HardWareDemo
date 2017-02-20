@@ -66,6 +66,7 @@
                     android:layout_centerInParent="true"
                     android:orientation="horizontal">
 
+                    <!--android:background="@mipmap/play"-->
                     <Button
                         android:id="@+id/btn_speaker_play"
                         android:layout_width="@dimen/dp150"
@@ -80,7 +81,6 @@
 
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 

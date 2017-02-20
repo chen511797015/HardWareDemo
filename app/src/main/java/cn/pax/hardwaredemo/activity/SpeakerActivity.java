@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-import javax.security.auth.login.LoginException;
-
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 
@@ -118,6 +116,9 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
 
         initAudioManager();
 
+        isPlaying = false;//不播放
+        btn_speaker_play.setBackgroundResource(R.mipmap.play);
+
 
     }
 
@@ -177,15 +178,21 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
 
         if (isPlaying) {
             isPlaying = false;
-            btn_speaker_play.setBackgroundResource(R.mipmap.pause);
-            mPlayer.start();
 
-        } else {
-            isPlaying = true;
+//            btn_speaker_play.setBackgroundResource(R.mipmap.pause);
+//            mPlayer.start();
             btn_speaker_play.setBackgroundResource(R.mipmap.play);
             if (mPlayer != null && mPlayer.isPlaying()) {
                 mPlayer.pause();
             }
+        } else {
+            isPlaying = true;
+//            btn_speaker_play.setBackgroundResource(R.mipmap.play);
+//            if (mPlayer != null && mPlayer.isPlaying()) {
+//                mPlayer.pause();
+//            }
+            btn_speaker_play.setBackgroundResource(R.mipmap.pause);
+            mPlayer.start();
         }
     }
 
@@ -194,6 +201,7 @@ public class SpeakerActivity extends BaseActivity implements View.OnClickListene
      */
     private void stopPlay() {
         btn_speaker_play.setBackgroundResource(R.mipmap.play);
+        isPlaying = false;
         if (mPlayer != null && mPlayer.isPlaying()) {
             mPlayer.stop();
             mPlayer.prepareAsync();

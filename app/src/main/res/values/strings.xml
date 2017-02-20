@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HardWareTest</string>
+    <string name="app_name">HardWareDemo</string>
 
     <string name="note_cash_box">Note: if the cashbox has been connected ,
     when you clicking on the button ,

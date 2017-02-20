@@ -373,7 +373,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IPS"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -396,7 +396,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="edp"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -433,7 +433,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="G+G Capacitance"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -578,7 +578,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IPS"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -601,7 +601,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="mipi"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -638,7 +638,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="G+G Capacitance"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -661,7 +661,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10 point"
+                                android:text="5 point"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -811,9 +811,10 @@
                             android:textSize="@dimen/sp25" />
 
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5 million zoom"
+                            android:text="5 Megapixel"
                             android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
@@ -861,7 +862,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2000mAh"
+                            android:text="2600mAh"
                             android:textSize="@dimen/sp15" />
 
                     </LinearLayout>
@@ -1029,7 +1030,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="MT7628K"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -1089,7 +1090,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2M"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
 
 
@@ -1112,9 +1113,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="8M"
+                                android:text="- - -"
                                 android:textSize="@dimen/sp15" />
-
 
                         </LinearLayout>
                     </LinearLayout>
