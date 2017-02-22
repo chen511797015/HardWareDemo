@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
+    <!--开机监听权限-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name=".HardWareApplication"
         android:allowBackup="true"
@@ -39,11 +42,18 @@
         <activity android:name=".activity.RouterActivity"></activity>
         <activity android:name=".activity.NetWorkActivity"></activity>
         <activity android:name=".activity.BluetoothActivity"></activity>
-        <activity android:name=".activity.SpeakerActivity">
-
-        </activity>
+        <activity android:name=".activity.SpeakerActivity"></activity>
         <activity android:name=".activity.CameraActivity"></activity>
         <activity android:name=".activity.CameraTestActivity"></activity>
+
+        <receiver android:name=".receiver.BootupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.android.example.USB_PERMISSION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <supports-screens
