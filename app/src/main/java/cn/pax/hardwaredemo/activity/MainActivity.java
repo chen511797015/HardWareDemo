@@ -72,8 +72,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void init() {
-        //初始化GridView数据
-        //HardWareApplication.getInstance();
     }
 
     int index = 0;
@@ -133,7 +131,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         Log.e(TAG, "选中界面: " + mClass[index].getSimpleName());
         if (index == 6) {
-            ToastUtil.showToast("Stay tuned for!");
+            ToastUtil.showToast(getResources().getString(R.string.Stay_tuned_for));
             return;
         }
         startActivity(new Intent(MainActivity.this, mClass[index]));

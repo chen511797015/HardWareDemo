@@ -26,7 +26,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_network_back"
-            android:text="NetWork"
+            android:text="@string/NetWork"
             android:textSize="@dimen/sp30" />
     </RelativeLayout>
 
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="WIFI Signal"
+                    android:text="@string/WIFI_Signal"
                     android:textSize="@dimen/sp30" />
 
             </RelativeLayout>
@@ -84,7 +84,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Nearby WLAN"
+                        android:text="@string/Select_Nearby_WLAN"
                         android:textSize="@dimen/sp30" />
 
                     <Button
@@ -96,7 +96,7 @@
                         android:layout_marginTop="@dimen/dp10"
                         android:background="@drawable/rectangle_corners_blue_gray"
                         android:padding="@dimen/dp10"
-                        android:text="Settings"
+                        android:text="@string/Settings"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/sp25" />
 
@@ -151,7 +151,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Refresh"
+                            android:text="@string/Refresh"
                             android:textSize="@dimen/sp30" />
                     </LinearLayout>
 
@@ -191,7 +191,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="NetWork Connection"
+                        android:text="@string/NetWork_Connection"
                         android:textSize="@dimen/sp30" />
                 </RelativeLayout>
 
@@ -407,7 +407,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="NetWork Test"
+                        android:text="@string/NetWork_Test"
                         android:textSize="@dimen/sp30" />
                 </RelativeLayout>
 
@@ -431,7 +431,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:gravity="center"
-                            android:text="Signal Intensity"
+                            android:text="@string/Signal_Intensity"
                             android:textSize="@dimen/sp25" />
 
                         <TextView
@@ -476,7 +476,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:gravity="center"
-                            android:text="Ping Gateway"
+                            android:text="@string/Ping_Gateway"
                             android:textSize="@dimen/sp25" />
 
                         <TextView
@@ -520,7 +520,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:gravity="center"
-                            android:text="Ping Official Website"
+                            android:text="@string/Ping_Official_Website"
                             android:textSize="@dimen/sp25" />
 
                         <TextView
@@ -575,7 +575,7 @@
                                 android:paddingLeft="@dimen/dp50"
                                 android:paddingRight="@dimen/dp50"
                                 android:paddingTop="@dimen/dp10"
-                                android:text="Start"
+                                android:text="@string/Start"
                                 android:textColor="#ffffff"
                                 android:textSize="@dimen/sp30" />
 

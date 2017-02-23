@@ -28,7 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_screen_back"
-            android:text="Screen"
+            android:text="@string/Screen"
             android:textSize="@dimen/sp30" />
 
 
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Display Setting"
+                    android:text="@string/Display_Setting"
                     android:textSize="@dimen/sp30" />
 
             </RelativeLayout>
@@ -95,7 +95,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:button="@drawable/rb_bg_screen"
-                            android:text="  Same"
+                            android:text="@string/Same"
                             android:textSize="@dimen/sp25" />
 
                         <RadioButton
@@ -104,7 +104,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp110"
                             android:button="@drawable/rb_bg_screen"
-                            android:text="  Different"
+                            android:text="@string/Different"
                             android:textSize="@dimen/sp25" />
 
                     </RadioGroup>
@@ -186,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="Resolution: 1920*1080 + 1280*800"
+                        android:text="@string/Resolution"
                         android:textSize="@dimen/sp30" />
 
                 </RelativeLayout>
@@ -215,7 +215,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Screen Test"
+                    android:text="@string/Screen_Test"
                     android:textSize="@dimen/sp30" />
 
             </RelativeLayout>
@@ -246,7 +246,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:background="@drawable/circle_blue_gray"
-                            android:text="Test"
+                            android:text="@string/Test"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/sp30" />
 
@@ -264,7 +264,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Color Test Order"
+                            android:text="@string/Color_Test_Order"
                             android:textSize="@dimen/sp25" />
 
                         <LinearLayout
@@ -355,7 +355,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Automatic Brightness Adjustment: "
+                            android:text="@string/Automatic_Brightness_Adjustment"
                             android:textSize="@dimen/sp30" />
 
                         <ToggleButton
@@ -392,7 +392,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Brightness: "
+                            android:text="@string/Brightness"
                             android:textSize="@dimen/sp30" />
 
                         <TextView

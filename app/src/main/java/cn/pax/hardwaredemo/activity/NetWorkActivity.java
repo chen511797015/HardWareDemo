@@ -86,6 +86,7 @@ public class NetWorkActivity extends BaseActivity {
 
     final static int WIFI_SETTINGS_REQUEST_CODE = 10086;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.e(TAG, "初始化NewWork界面...");

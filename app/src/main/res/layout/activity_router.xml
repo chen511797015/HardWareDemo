@@ -27,7 +27,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_router_back"
-            android:text="Router"
+            android:text="@string/Router"
             android:textSize="@dimen/sp30" />
     </RelativeLayout>
 
@@ -50,7 +50,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            
+
             <ProgressBar
                 style="@style/publicloadingProgressStyle"
                 android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/dp5"
-                android:text="正在加载中……"
+                android:text="@string/Loading_in"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp14" />
 

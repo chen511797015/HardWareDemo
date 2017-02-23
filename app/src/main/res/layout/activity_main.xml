@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="HardWare Platform"
+            android:text="@string/HardWare_Platform"
             android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Device info"
+                        android:text="@string/Device_info"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -101,7 +101,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Screen"
+                        android:text="@string/Screen"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -135,7 +135,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Touchpanel"
+                        android:text="@string/Touchpanel"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -170,7 +170,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Printer"
+                        android:text="@string/Printer"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -205,7 +205,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scanning gun"
+                        android:text="@string/Scanning_gun"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -242,7 +242,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CashBox"
+                        android:text="@string/CashBox"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -285,7 +285,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3G/4G"
+                        android:text="@string/Ethernet"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -320,7 +320,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Router"
+                        android:text="@string/Router"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -355,7 +355,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NetWork"
+                        android:text="@string/NetWork"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -390,7 +390,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bluetooth"
+                        android:text="@string/Bluetooth"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -425,7 +425,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Speaker"
+                        android:text="@string/Speaker"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 
@@ -460,7 +460,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Camera"
+                        android:text="@string/Camera"
                         android:textColor="#000000"
                         android:textSize="@dimen/sp25" />
 

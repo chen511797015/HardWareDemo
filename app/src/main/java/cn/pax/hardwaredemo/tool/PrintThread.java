@@ -51,6 +51,7 @@ public class PrintThread implements Runnable {
             for (int i = 0; i < bitmaps.size(); i++) {
                 mBaos.write(PrinterUtil.decodeBitmap(bitmaps.get(i)));
             }
+            mBaos.write(PrinterConstants.ESC_ALIGN_LEFT);
             PrinterUtil.writeData(mContext, mBaos.toByteArray());
             PrinterUtil.writeData(mContext, PrinterConstants.FullCut);
 

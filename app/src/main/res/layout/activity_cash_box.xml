@@ -26,7 +26,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_cash_box_back"
-            android:text="CashBox"
+            android:text="@string/CashBox"
             android:textSize="@dimen/sp30" />
 
 
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CashBox Test"
+            android:text="@string/CashBox_Test"
             android:textSize="@dimen/sp30" />
 
 
@@ -67,7 +67,7 @@
                     android:layout_margin="@dimen/dp30"
                     android:background="@drawable/btn_bg_cash_box"
                     android:padding="@dimen/dp20"
-                    android:text="Open"
+                    android:text="@string/Open"
                     android:textColor="@color/color_white_black"
                     android:textSize="@dimen/sp30" />
             </RelativeLayout>

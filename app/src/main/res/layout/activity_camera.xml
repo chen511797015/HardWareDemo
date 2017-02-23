@@ -27,7 +27,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_camera_back"
-            android:text="Camera"
+            android:text="@string/Camera"
             android:textSize="@dimen/sp30" />
     </RelativeLayout>
 
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Camera Test"
+                android:text="@string/Camera_Test"
                 android:textSize="@dimen/sp30" />
         </RelativeLayout>
 
@@ -99,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="Code you scanned"
+                        android:text="@string/Code_you_scanned"
                         android:textSize="@dimen/sp25"
                         android:visibility="gone" />
 
@@ -133,7 +133,7 @@
                         android:layout_centerInParent="true"
                         android:background="#00000000"
                         android:drawableTop="@mipmap/btn_print"
-                        android:text="Print QR Code"
+                        android:text="@string/Print_QR_Code"
                         android:textAllCaps="false"
                         android:textSize="@dimen/sp25" />
 

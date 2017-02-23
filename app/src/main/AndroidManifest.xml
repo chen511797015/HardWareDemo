@@ -46,12 +46,12 @@
         <activity android:name=".activity.CameraActivity"></activity>
         <activity android:name=".activity.CameraTestActivity"></activity>
 
+        <service android:name=".service.PrinterTestService" />
+
         <receiver android:name=".receiver.BootupReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="com.android.example.USB_PERMISSION" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
     </application>

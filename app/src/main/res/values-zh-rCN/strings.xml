@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">硬件管家</string>
+
+    <string name="HardWare_Platform">硬件管家</string>
+    <string name="Device_info">设备信息</string>
+    <string name="Screen">屏幕</string>
+    <string name="Touchpanel">触摸</string>
+    <string name="Printer">打印机</string>
+    <string name="Scanning_gun">扫码枪</string>
+    <string name="CashBox">钱箱</string>
+    <string name="Ethernet">3G/4G</string>
+    <string name="Router">路由器</string>
+    <string name="NetWork">网络</string>
+    <string name="Bluetooth">蓝牙</string>
+    <string name="Camera">相机</string>
+    <string name="Speaker">语音</string>
+    <string name="Stay_tuned_for">敬请期待!</string>
+
+
+    <string name="The_device_does_not_support_Bluetooth">该设备不支持蓝牙!</string>
+    <string name="Bluetooth_device">本机拥有蓝牙设备!</string>
+    <string name="Bluetooth_connection">蓝牙连接</string>
+    <string name="Select_Nearby_Bluetooth_Signal">选择附近的蓝牙信号</string>
+    <string name="Settings">设置</string>
+    <string name="Refresh">刷新</string>
+
+    <string name="Content_is_empty">内容为空</string>
+    <string name="Camera_Test">扫描测试</string>
+    <string name="Code_you_scanned">二维码扫描</string>
+    <string name="Print_QR_Code">打印二维码</string>
+    <string name="test_zxing"><![CDATA[打开 & 测试]]></string>
+    <string name="close_exit"><![CDATA[关闭 & 离开]]></string>
+
+    <!--二维码扫描界面-->
+    <string name="Please_put_the_QR_code_into_the_viewfinder">请将二维码放入取景框</string>
+
+    <!--钱箱-->
+    <string name="CashBox_Test">钱箱测试</string>
+    <string name="note_cash_box">注意: 如果钱箱已连接,
+    当你单击按钮时,
+    将会有很大的响声!</string>
+    <string name="Open">打开</string>
+
+    <!--触摸测试-->
+    <string name="Please_touch_screen_test">请触屏测试!</string>
+
+    <!--音频测试-->
+    <string name="Speaker_Test">音频测试</string>
+    <string name="Volume">音量: </string>
+
+    <!--屏幕-->
+    <string name="Display_Setting">显示设置</string>
+    <string name="Same">    同显</string>
+    <string name="Different">   异显</string>
+    <string name="Resolution">分辨率: 1920*1080 + 1280*800</string>
+    <string name="Screen_Test">屏幕测试</string>
+    <string name="Color_Test_Order">颜色测试顺序</string>
+    <string name="Automatic_Brightness_Adjustment">自动亮度调节: </string>
+    <string name="Brightness">亮度: </string>
+    <string name="Test">测试</string>
+
+
+    <!--扫码测试-->
+    <string name="Please_check_the_printer_status">请检查打印机状态!</string>
+    <string name="Scanning_Gun">扫码枪</string>
+    <string name="Scanning_Gun_Test">扫码枪测试</string>
+    <string name="print_bar_code">打印条码</string>
+    <string name="Scan_the_bar_code">扫描条形码:</string>
+
+    <string name="Loading_in">正在加载中……</string>
+
+    <!--打印测试-->
+    <string name="Printer_Test">打印测试</string>
+    <string name="print_QR_code">打印二维码</string>
+    <string name="print_black_square">打印黑色块</string>
+
+
+    <!--wifi界面-->
+    <string name="WIFI_Signal">WIFI 信号</string>
+    <string name="Select_Nearby_WLAN">选择附近的 WIFI</string>
+    <string name="NetWork_Connection">网络连接</string>
+    <string name="NetWork_Test">网络测试</string>
+    <string name="Signal_Intensity">信号强度</string>
+    <string name="Ping_Gateway">Ping网关</string>
+    <string name="Ping_Official_Website">Ping官网</string>
+    <string name="Start">开始</string>
+
+
+    <!--本机信息-->
+    <string name="Main_Board">主板</string>
+    <string name="Model">型号</string>
+    <string name="Android_Version">Android版本</string>
+    <string name="Ram">Ram</string>
+    <string name="Rom">Rom</string>
+    <string name="WLAN_MAC">WLAN MAC</string>
+    <string name="LAN_MAC">LAN MAC</string>
+    <string name="Main_Screen">主屏幕</string>
+    <string name="Size">尺寸</string>
+    <string name="resolution">分辨率</string>
+    <string name="Type">类型</string>
+    <string name="Interface">接口</string>
+    <string name="Touchpanel_Material">触摸屏材料</string>
+    <string name="Touch_Number">触摸数</string>
+    <string name="ten_point">10 点触摸</string>
+    <string name="five_point">5 点触摸</string>
+    <string name="Customer_Screen">客屏</string>
+    <string name="mute_thermal_printer_with_cutter">带切割器的静音热敏打印机</string>
+    <string name="Paper_roll">卷纸</string>
+    <string name="Eighty_mm">80mm</string>
+    <string name="five_Megapixel">500万像素</string>
+    <string name="Battery">电池</string>
+    <string name="Capacity">容量</string>
+    <string name="tszz_mAh">2600毫安</string>
+    <string name="wifi">WIFI</string>
+    <string name="Frequency">频率</string>
+    <string name="info">信息</string>
+    <string name="Operating_System">操作系统</string>
+    <string name="Ecos">Ecos</string>
+    <string name="MAC">MAC</string>
+    <string name="Agreement">协议</string>
+
+
+</resources>

@@ -151,11 +151,11 @@ public class BluetoothActivity extends BaseActivity {
         //判断是否拥有蓝牙设备
         if (mBluetoothAdapter == null) {
             // ToastUtil.showToast("该设备不支持蓝牙!");
-            ToastUtil.showToast("The device does not support Bluetooth!");
+            ToastUtil.showToast(getResources().getString(R.string.The_device_does_not_support_Bluetooth));
 
         } else {
             // ToastUtil.showToast("本机拥有蓝牙设备!");
-            ToastUtil.showToast("Bluetooth device!");
+            ToastUtil.showToast(getResources().getString(R.string.Bluetooth_device));
 
         }
 

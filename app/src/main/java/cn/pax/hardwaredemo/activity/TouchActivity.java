@@ -60,10 +60,7 @@ public class TouchActivity extends BaseActivity {
 
     @Override
     protected void init() {
-
         //startApk();
-
-
     }
 
 

@@ -86,7 +86,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
                     new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
                 else {
-                    ToastUtil.showToast("请检查打印机状态!");
+                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
                 }
                 break;
 
@@ -95,7 +95,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
                     new PrintThread(PrinterActivity.this, R.mipmap.pax_logo).run();
                 else
-                    ToastUtil.showToast("请检查打印机状态!");
+                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
                 break;
 
             case R.id.btn_printer_black_square:
@@ -103,7 +103,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
                     new PrintThread(PrinterActivity.this, R.mipmap.black_sp).run();
                 else
-                    ToastUtil.showToast("请检查打印机状态!");
+                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
                 break;
         }
     }

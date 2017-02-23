@@ -3,10 +3,11 @@ package cn.pax.hardwaredemo.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
-import static android.content.ContentValues.TAG;
+
+import cn.pax.hardwaredemo.util.PrinterUtil;
+
 
 /**
  * Created by chendd on 2017/2/22.
@@ -15,10 +16,36 @@ import static android.content.ContentValues.TAG;
 public class PrinterTestService extends Service {
     private static final String TAG = "PrinterTestService";
 
-    @Nullable
+    @Override
+    public void onCreate() {
+        Log.e(TAG, "onCreate: " + Thread.currentThread().getName());
+        super.onCreate();
+
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e(TAG, "onStartCommand: " + Thread.currentThread().getName());
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    //打印测试页
+                    PrinterUtil.getInstance(getApplicationContext()).getUsbStatus();
+                    //切刀前走纸距离
+                    //PrinterUtil.writeData(getApplicationContext(), new byte[]{0x1b, 0x23, 0x23, 0x43, 0x54, 0x46, 0x44, 0x78, 0x00});
+                    PrinterUtil.writeData(getApplicationContext(), "print test ..." );
+                    stopSelf();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        return super.onStartCommand(intent, flags, startId);
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
-        Log.e(TAG, "onBind: -----------------" + Thread.currentThread().getName());
         return null;
     }
 }

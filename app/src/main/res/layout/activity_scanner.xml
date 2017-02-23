@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_scanner_back"
-            android:text="Scanning Gun"
+            android:text="@string/Scanning_Gun"
             android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Scanning Gun Test"
+            android:text="@string/Scanning_Gun_Test"
             android:textSize="@dimen/sp30" />
 
         <LinearLayout
@@ -73,7 +73,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="@null"
                         android:drawableTop="@mipmap/btn_print"
-                        android:text="print bar code"
+                        android:text="@string/print_bar_code"
                         android:textAllCaps="false"
                         android:textSize="@dimen/sp25" />
 
@@ -129,7 +129,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="Scan the bar code:"
+                            android:text="@string/Scan_the_bar_code"
                             android:textSize="@dimen/sp30" />
 
                     </RelativeLayout>

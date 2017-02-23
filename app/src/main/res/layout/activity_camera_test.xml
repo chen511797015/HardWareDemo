@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp10"
-            android:text="Camera Test"
+            android:text="@string/Camera_Test"
             android:textSize="@dimen/sp30" />
     </LinearLayout>
 
@@ -61,7 +61,6 @@
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="@dimen/sp25" />
-
 
     </LinearLayout>
 

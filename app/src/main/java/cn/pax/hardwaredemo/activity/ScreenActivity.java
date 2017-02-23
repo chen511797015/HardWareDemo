@@ -50,6 +50,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_screen);
+
     }
 
     @Override

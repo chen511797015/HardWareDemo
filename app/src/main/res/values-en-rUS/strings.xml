@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HardWareDemo</string>
+
+    <!--主界面-->
+    <string name="HardWare_Platform">HardWare Platform</string>
+    <string name="Device_info">Device info</string>
+    <string name="Screen">Screen</string>
+    <string name="Touchpanel">Touchpanel</string>
+    <string name="Printer">Printer</string>
+    <string name="Scanning_gun">Scanning_gun</string>
+    <string name="CashBox">CashBox</string>
+    <string name="Ethernet">3G/4G</string>
+    <string name="Router">Router</string>
+    <string name="NetWork">NetWork</string>
+    <string name="Bluetooth">Bluetooth</string>
+    <string name="Camera">Camera</string>
+    <string name="Speaker">Speaker</string>
+    <string name="Stay_tuned_for">Stay tuned for!</string>
+
+
+    <!--蓝牙界面-->
+    <string name="The_device_does_not_support_Bluetooth">The device does not support Bluetooth!</string>
+    <string name="Bluetooth_device">Bluetooth device!</string>
+    <string name="Bluetooth_connection">Bluetooth connection</string>
+    <string name="Select_Nearby_Bluetooth_Signal">Select Nearby Bluetooth Signal</string>
+    <string name="Settings">Settings</string>
+    <string name="Refresh">Refresh</string>
+
+    <!--照相界面-->
+    <string name="Content_is_empty">Content is empty</string>
+    <string name="Camera_Test">Camera Test</string>
+    <string name="Code_you_scanned">Code you scanned</string>
+    <string name="Print_QR_Code">Print QR Code</string>
+    <string name="test_zxing"><![CDATA[open & test]]></string>
+    <string name="close_exit"><![CDATA[close & exit]]></string>
+
+    <!--二维码扫描界面-->
+    <string name="Please_put_the_QR_code_into_the_viewfinder">Please put the QR code into the viewfinder</string>
+
+    <!--钱箱-->
+    <string name="CashBox_Test">CashBox Test</string>
+    <string name="note_cash_box">Note: if the cashbox has been connected ,
+    when you clicking on the button ,
+    there will be a big noise !</string>
+    <string name="Open">Open</string>
+
+    <!--触摸测试-->
+    <string name="Please_touch_screen_test">Please touch screen test!</string>
+
+    <!--音频测试-->
+    <string name="Speaker_Test">Speaker Test</string>
+    <string name="Volume">Volume: </string>
+
+    <!--屏幕-->
+    <string name="Display_Setting">Display Setting</string>
+    <string name="Same">    Same</string>
+    <string name="Different">   Different</string>
+    <string name="Resolution">Resolution: 1920*1080 + 1280*800</string>
+    <string name="Screen_Test">Screen Test</string>
+    <string name="Color_Test_Order">Color Test Order</string>
+    <string name="Automatic_Brightness_Adjustment">Automatic Brightness Adjustment: </string>
+    <string name="Brightness">Brightness: </string>
+    <string name="Test">Test</string>
+
+
+    <!--扫码测试-->
+    <string name="Please_check_the_printer_status">Please check the printer status!</string>
+    <string name="Scanning_Gun">Scanning Gun</string>
+    <string name="Scanning_Gun_Test">Scanning Gun Test</string>
+    <string name="print_bar_code">print bar code</string>
+    <string name="Scan_the_bar_code">Scan the bar code:</string>
+    <string name="Loading_in">Loading in ……</string>
+
+
+    <!--打印测试-->
+    <string name="Printer_Test">Printer Test</string>
+    <string name="print_QR_code">print QR code</string>
+    <string name="print_black_square">print black square</string>
+
+
+    <!--wifi界面-->
+    <string name="WIFI_Signal">WIFI Signal</string>
+    <string name="Select_Nearby_WLAN">Select Nearby WLAN</string>
+    <string name="NetWork_Connection">NetWork Connection</string>
+    <string name="NetWork_Test">NetWork Test</string>
+    <string name="Signal_Intensity">Signal Intensity</string>
+    <string name="Ping_Gateway">Ping Gateway</string>
+    <string name="Ping_Official_Website">Ping Official Website</string>
+    <string name="Start">Start</string>
+
+    <!--本机信息-->
+    <string name="Main_Board">Main Board</string>
+    <string name="Model">Model</string>
+    <string name="Android_Version">Android Version</string>
+    <string name="Ram">Ram</string>
+    <string name="Rom">Rom</string>
+    <string name="WLAN_MAC">WLAN MAC</string>
+    <string name="LAN_MAC">LAN MAC</string>
+    <string name="Main_Screen">Main Screen</string>
+    <string name="Size">Size</string>
+    <string name="resolution">Resolution</string>
+    <string name="Type">Type</string>
+    <string name="Interface">Interface</string>
+    <string name="Touchpanel_Material">Touchpanel Material</string>
+    <string name="Touch_Number">Touch Number</string>
+    <string name="ten_point">10 point</string>
+    <string name="five_point">5 point</string>
+    <string name="Customer_Screen">Customer Screen</string>
+    <string name="mute_thermal_printer_with_cutter">mute thermal printer with cutter</string>
+    <string name="Paper_roll">Paper roll</string>
+    <string name="Eighty_mm">80mm</string>
+    <string name="five_Megapixel">5 Megapixel</string>
+    <string name="Battery">Battery</string>
+    <string name="Capacity">Capacity</string>
+    <string name="tszz_mAh">2600mAh</string>
+    <string name="wifi">WIFI</string>
+    <string name="Frequency">Frequency</string>
+    <string name="info">info</string>
+    <string name="Operating_System">Operating System</string>
+    <string name="Ecos">Ecos</string>
+    <string name="MAC">MAC</string>
+    <string name="Agreement">Agreement</string>
+
+
+</resources>

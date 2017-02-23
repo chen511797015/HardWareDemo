@@ -26,6 +26,7 @@ import cn.pax.hardwaredemo.base.BaseActivity;
 public class SpeakerActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "SpeakerActivity";
+    
 
     ImageView iv_speaker_back;//返回
     RelativeLayout m_rl_back;

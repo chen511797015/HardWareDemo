@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_printer_back"
-            android:text="Printer"
+            android:text="@string/Printer"
             android:textSize="@dimen/sp30" />
 
 
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Printer Test"
+            android:text="@string/Printer_Test"
             android:textSize="@dimen/sp30" />
 
         <LinearLayout
@@ -137,7 +137,7 @@
                             android:layout_centerInParent="true"
                             android:background="@null"
                             android:drawableTop="@mipmap/btn_print"
-                            android:text="print bar code"
+                            android:text="@string/print_bar_code"
                             android:textAllCaps="false"
                             android:textSize="@dimen/sp25" />
                     </RelativeLayout>
@@ -157,7 +157,7 @@
                             android:layout_centerInParent="true"
                             android:background="@null"
                             android:drawableTop="@mipmap/btn_print"
-                            android:text="print QR code"
+                            android:text="@string/print_QR_code"
                             android:textAllCaps="false"
                             android:textSize="@dimen/sp25" />
 
@@ -177,7 +177,7 @@
                             android:layout_centerInParent="true"
                             android:background="@null"
                             android:drawableTop="@mipmap/btn_print"
-                            android:text="print black square"
+                            android:text="@string/print_black_square"
                             android:textAllCaps="false"
                             android:textSize="@dimen/sp25" />
 

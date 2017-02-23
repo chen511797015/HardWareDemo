@@ -55,7 +55,7 @@ public class CameraTestActivity extends BaseAppCompatActivity {
     @Override
     protected void initView() {
 
-        dbvCameraTest.setStatusText("Please put the QR code into the viewfinder");
+        dbvCameraTest.setStatusText(getResources().getString(R.string.Please_put_the_QR_code_into_the_viewfinder));
 
         //初始化捕获
         mCaptureManager = new CaptureManager(this, dbvCameraTest);

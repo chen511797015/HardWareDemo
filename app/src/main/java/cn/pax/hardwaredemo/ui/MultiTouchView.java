@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import cn.pax.hardwaredemo.R;
+
 
 /**
  * Created by chendd on 2017/1/10.
@@ -23,7 +25,7 @@ public class MultiTouchView extends SurfaceView implements SurfaceHolder.Callbac
     private static final int MAX_TOUCHPOINTS = 10;
     //private static final String START_TEXT = "请随便触摸屏幕进行测试";
 
-    private static final String START_TEXT = "Please touch screen test!";
+    private static String START_TEXT = "";
 
 
     private Paint textPaint = new Paint();
@@ -37,6 +39,7 @@ public class MultiTouchView extends SurfaceView implements SurfaceHolder.Callbac
     public MultiTouchView(Context context) {
         super(context);
 
+        START_TEXT = getResources().getString(R.string.Please_touch_screen_test);
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         setFocusable(true); // 确保我们的View能获得输入焦点

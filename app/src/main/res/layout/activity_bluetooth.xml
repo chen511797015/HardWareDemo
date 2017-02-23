@@ -5,7 +5,6 @@
     android:background="#f1f1f1">
 
 
-
     <!--Bluetooth-->
     <RelativeLayout
         android:id="@+id/m_rl_back"
@@ -27,7 +26,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_toRightOf="@id/iv_bluetooth_back"
-            android:text="Bluetooth"
+            android:text="@string/Bluetooth"
             android:textSize="@dimen/sp30" />
 
     </RelativeLayout>
@@ -44,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bluetooth connection"
+            android:text="@string/Bluetooth_connection"
             android:textSize="@dimen/sp30" />
 
         <LinearLayout
@@ -65,7 +64,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Select Nearby Bluetooth Signal"
+                    android:text="@string/Select_Nearby_Bluetooth_Signal"
                     android:textSize="@dimen/sp30" />
 
                 <Button
@@ -75,7 +74,7 @@
                     android:layout_marginLeft="@dimen/dp30"
                     android:background="@drawable/rectangle_corners_blue_gray"
                     android:padding="@dimen/dp10"
-                    android:text="Settings"
+                    android:text="@string/Settings"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/sp25" />
@@ -131,7 +130,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Refresh"
+                        android:text="@string/Refresh"
                         android:textSize="@dimen/sp30" />
                 </LinearLayout>
 

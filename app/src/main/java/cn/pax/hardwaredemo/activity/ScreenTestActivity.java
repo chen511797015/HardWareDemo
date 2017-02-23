@@ -22,6 +22,7 @@ public class ScreenTestActivity extends BaseActivity {
     private static final String TAG = "ScreenTestActivity";
 
 
+
     View activity_screen_test;//背景颜色变化
     SeekBar sb_screen_test;//亮度进度条
 

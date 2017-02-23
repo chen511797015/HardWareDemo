@@ -27,6 +27,7 @@ public class RouterActivity extends BaseActivity {
 
     private static final String TAG = "RouterActivity";
 
+
     @BindView(R.id.iv_router_back)
     ImageView ivRouterBack;
     @BindView(R.id.wv_router_test)

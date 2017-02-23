@@ -93,9 +93,7 @@ public class CameraActivity extends BaseActivity {
      */
     @OnClick(R.id.btn_camera_test)
     public void customScan() {
-
         Log.d(TAG, "启动二维码扫描...");
-
         new IntentIntegrator(this)
                 .setOrientationLocked(false)
                 .setCaptureActivity(CameraTestActivity.class)
@@ -117,7 +115,7 @@ public class CameraActivity extends BaseActivity {
         if (mIntentResult != null) {
             Log.e(TAG, "onActivityResult:... ");
             if (mIntentResult.getContents() == null) {
-                ToastUtil.showToast("内容为空");
+                ToastUtil.showToast(getResources().getString(R.string.Content_is_empty));
                 ivCameraShowQr.setImageResource(R.mipmap.camera_pic);
                 ivCameraShowQr.setVisibility(View.VISIBLE);
                 tv_camera_show.setVisibility(View.GONE);

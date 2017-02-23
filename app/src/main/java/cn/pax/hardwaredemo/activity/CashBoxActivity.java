@@ -22,6 +22,8 @@ public class CashBoxActivity extends BaseActivity {
 
     private static final String TAG = "CashBoxActivity";
 
+
+
     Button btn_cash_box_open;// 打开钱箱
     ImageView iv_cash_box_back;//返回
     RelativeLayout m_rl_back;
