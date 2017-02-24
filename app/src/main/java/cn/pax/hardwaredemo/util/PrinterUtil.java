@@ -79,7 +79,6 @@ public class PrinterUtil {
         List<String> mList = new ArrayList<>();//二进制集合
         StringBuffer mSb;
 
-
         //每行字节数(除以8，不足补0)
         int mBitLen = mWidth / 8;
         int mZeroCount = mWidth % 8;

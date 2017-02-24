@@ -1,5 +1,6 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -11,11 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.pax.api.NewPrinterManager;
+import com.pax.api.PrintException;
+import com.pax.api.PrintUtil;
+import com.pax.api.UsbAdmin;
+
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
-import cn.pax.hardwaredemo.tool.PrintThread;
-import cn.pax.hardwaredemo.util.PrinterUtil;
-import cn.pax.hardwaredemo.util.ToastUtil;
+import cn.pax.hardwaredemo.util.PrinterConstants;
 
 
 public class ScannerActivity extends BaseActivity {
@@ -27,6 +31,8 @@ public class ScannerActivity extends BaseActivity {
     Button btn_scanner_bar_code;//条码打印
     ImageView iv_scanner_back;//返回健
     RelativeLayout m_rl_back;
+
+    NewPrinterManager printerManager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +75,32 @@ public class ScannerActivity extends BaseActivity {
         btn_scanner_bar_code.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (PrinterUtil.getInstance(ScannerActivity.this).getUsbStatus())
-                    new PrintThread(ScannerActivity.this, R.mipmap.bar_code_2).run();
-                else {
-                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
-                    PrinterUtil.getInstance(ScannerActivity.this).openUsb();
-                }
+//                if (PrinterUtil.getInstance(ScannerActivity.this).getUsbStatus())
+//                    new PrintThread(ScannerActivity.this, R.mipmap.bar_code_2).run();
+//                else {
+//                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
+//                    PrinterUtil.getInstance(ScannerActivity.this).openUsb();
+//                }
+
+                new Thread() {
+                    @Override
+                    public void run() {
+
+
+                        try {
+                            printerManager = NewPrinterManager.getInstance(ScannerActivity.this);
+                            printerManager.prnInit();
+                            printerManager.prnBytes(PrinterConstants.ESC_ALIGN_CENTER);
+                            printerManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.bar_code_2));
+                            printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
+                            printerManager.prnStartCut(1);
+                            printerManager.prnStart();
+                            //printerManager.prnClose();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
             }
         });
 
@@ -96,5 +122,31 @@ public class ScannerActivity extends BaseActivity {
     @Override
     protected void init() {
 
+    }
+
+
+    @Override
+    protected void onDestroy() {
+//        if (null != printerManager) {
+//            try {
+//                printerManager.closeUsbReceiver();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+        super.onDestroy();
+    }
+
+
+    @Override
+    protected void onPause() {
+        if (null != printerManager) {
+            try {
+                printerManager.prnClose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        super.onPause();
     }
 }

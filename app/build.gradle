@@ -25,6 +25,11 @@ android {
         useNewCruncher = false
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
 }
 
 dependencies {

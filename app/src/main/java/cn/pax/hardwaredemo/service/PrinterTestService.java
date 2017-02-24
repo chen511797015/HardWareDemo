@@ -6,6 +6,9 @@ import android.os.IBinder;
 import android.util.Log;
 
 
+import com.pax.api.NewPrinterManager;
+import com.pax.api.PrintManager;
+
 import cn.pax.hardwaredemo.util.PrinterUtil;
 
 
@@ -30,11 +33,20 @@ public class PrinterTestService extends Service {
             @Override
             public void run() {
                 try {
+                    //获取usb权限
+                    NewPrinterManager.getInstance(getApplicationContext());
                     //打印测试页
-                    PrinterUtil.getInstance(getApplicationContext()).getUsbStatus();
+                    //PrinterUtil.getInstance(getApplicationContext()).getUsbStatus();
                     //切刀前走纸距离
                     //PrinterUtil.writeData(getApplicationContext(), new byte[]{0x1b, 0x23, 0x23, 0x43, 0x54, 0x46, 0x44, 0x78, 0x00});
-                    PrinterUtil.writeData(getApplicationContext(), "print test ..." );
+                    //PrinterUtil.writeData(getApplicationContext(), "print test ...");
+
+                    //使用新的jar打印
+//                    PrintManager printManager = PrintManager.getInstance(getApplicationContext());
+//                    printManager.prnStr("print test ...", "GBK");
+//                    printManager.prnStartCut(1);
+//                    printManager.prnClose();
+
                     stopSelf();
                 } catch (Exception e) {
                     e.printStackTrace();
