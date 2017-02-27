@@ -2,6 +2,7 @@ package cn.pax.hardwaredemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
@@ -72,6 +73,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void init() {
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindow().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        Log.i(TAG, "屏幕宽度:" + dm.widthPixels + ",屏幕高度:" + dm.heightPixels + ",屏幕分辨率:" + dm.densityDpi);
+
     }
 
     int index = 0;
