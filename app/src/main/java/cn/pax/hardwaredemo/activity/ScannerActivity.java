@@ -86,7 +86,6 @@ public class ScannerActivity extends BaseActivity {
                     @Override
                     public void run() {
 
-
                         try {
                             printerManager = NewPrinterManager.getInstance(ScannerActivity.this);
                             printerManager.prnInit();
