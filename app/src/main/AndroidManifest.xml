@@ -14,6 +14,7 @@
 
     <!--开机监听权限-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
     <application
         android:name=".HardWareApplication"
@@ -47,12 +48,21 @@
         <activity android:name=".activity.CameraTestActivity"></activity>
 
         <service android:name=".service.PrinterTestService" />
-
         <receiver android:name=".receiver.BootupReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="com.android.example.USB_PERMISSION" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.example.USB_PERMISSION" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+
+                <data android:scheme="file"></data>
+            </intent-filter>
+
         </receiver>
     </application>
 

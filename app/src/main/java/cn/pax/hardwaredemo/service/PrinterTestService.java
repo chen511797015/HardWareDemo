@@ -2,6 +2,8 @@ package cn.pax.hardwaredemo.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -9,7 +11,16 @@ import android.util.Log;
 import com.pax.api.NewPrinterManager;
 import com.pax.api.PrintManager;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import cn.pax.hardwaredemo.R;
+import cn.pax.hardwaredemo.activity.ScannerActivity;
+import cn.pax.hardwaredemo.tool.PrintThread;
+import cn.pax.hardwaredemo.util.PrinterConstants;
 import cn.pax.hardwaredemo.util.PrinterUtil;
+import cn.pax.hardwaredemo.util.ToastUtil;
 
 
 /**
@@ -33,20 +44,15 @@ public class PrinterTestService extends Service {
             @Override
             public void run() {
                 try {
-                    //获取usb权限
-                    NewPrinterManager.getInstance(getApplicationContext());
-                    //打印测试页
-                    //PrinterUtil.getInstance(getApplicationContext()).getUsbStatus();
-                    //切刀前走纸距离
-                    //PrinterUtil.writeData(getApplicationContext(), new byte[]{0x1b, 0x23, 0x23, 0x43, 0x54, 0x46, 0x44, 0x78, 0x00});
-                    //PrinterUtil.writeData(getApplicationContext(), "print test ...");
+                    PrintManager printManager = PrintManager.getInstance(getApplicationContext());
+                    Thread.sleep(1000);
+                    printManager.prnInit();
+                    //printManager.prnStr("print test ...", "GBK");
+                    printManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.white));
+                    //printManager.prnStartCut(1);
+                    printManager.prnClose();
 
-                    //使用新的jar打印
-//                    PrintManager printManager = PrintManager.getInstance(getApplicationContext());
-//                    printManager.prnStr("print test ...", "GBK");
-//                    printManager.prnStartCut(1);
-//                    printManager.prnClose();
-
+                    Log.e(TAG, "****************打印走纸结束*****************");
                     stopSelf();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -59,5 +65,11 @@ public class PrinterTestService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "***************onDestroy***************");
     }
 }

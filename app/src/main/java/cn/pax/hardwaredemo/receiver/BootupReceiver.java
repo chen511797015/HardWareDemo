@@ -26,7 +26,7 @@ public class BootupReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         final String action = intent.getAction();
-
+        Log.e(TAG, "onReceive: " + action);
         if ("android.intent.action.BOOT_COMPLETED".equals(action)) {
 //            //MainActivity就是开机显示的界面
 //            Intent mBootIntent = new Intent(context, MainActivity.class);
@@ -44,6 +44,7 @@ public class BootupReceiver extends BroadcastReceiver {
                 Intent serviceIntent = new Intent(context, PrinterTestService.class);
                 context.startService(serviceIntent);
                 PreferencesUtil.putBoolean(context, "isBootCompleted", false);
+                //isBootCompleted = false;
             }
         }
     }

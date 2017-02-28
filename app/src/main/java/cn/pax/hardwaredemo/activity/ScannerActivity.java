@@ -14,12 +14,16 @@ import android.widget.RelativeLayout;
 
 import com.pax.api.NewPrinterManager;
 import com.pax.api.PrintException;
+import com.pax.api.PrintManager;
 import com.pax.api.PrintUtil;
 import com.pax.api.UsbAdmin;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
+import cn.pax.hardwaredemo.tool.PrintThread;
 import cn.pax.hardwaredemo.util.PrinterConstants;
+import cn.pax.hardwaredemo.util.PrinterUtil;
+import cn.pax.hardwaredemo.util.ToastUtil;
 
 
 public class ScannerActivity extends BaseActivity {
@@ -32,7 +36,7 @@ public class ScannerActivity extends BaseActivity {
     ImageView iv_scanner_back;//返回健
     RelativeLayout m_rl_back;
 
-    NewPrinterManager printerManager = null;
+    PrintManager printerManager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +89,8 @@ public class ScannerActivity extends BaseActivity {
                 new Thread() {
                     @Override
                     public void run() {
-
                         try {
-                            printerManager = NewPrinterManager.getInstance(ScannerActivity.this);
+                            printerManager = PrintManager.getInstance(ScannerActivity.this);
                             printerManager.prnInit();
                             printerManager.prnBytes(PrinterConstants.ESC_ALIGN_CENTER);
                             printerManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.bar_code_2));

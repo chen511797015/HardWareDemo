@@ -1,5 +1,6 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,9 +13,14 @@ import com.pax.api.NewPrinterManager;
 import com.pax.api.PrintManager;
 import com.pax.api.ThreadPoolManager;
 
+import java.io.ByteArrayOutputStream;
+
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
+import cn.pax.hardwaredemo.tool.PrintThread;
 import cn.pax.hardwaredemo.util.PrinterConstants;
+import cn.pax.hardwaredemo.util.PrinterUtil;
+import cn.pax.hardwaredemo.util.ToastUtil;
 
 
 /**
@@ -30,16 +36,16 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
     Button btn_printer_black_square;//打印黑色块
     ImageView iv_printer_back;//返回
     RelativeLayout m_rl_back;
-    PrintManager mPrintManager;
     ThreadPoolManager mThreadPoolManager;
 
     int index = 0;
-    private NewPrinterManager printerManager = null;
+    private PrintManager printerManager = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_printer);
+
     }
 
     @Override
@@ -102,13 +108,13 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void onDestroy() {
-//        if (null != printerManager) {
-//            try {
-//                printerManager.closeUsbReceiver();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (null != printerManager) {
+            try {
+                printerManager.closeUsbReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         super.onDestroy();
     }
 
@@ -122,36 +128,30 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.btn_printer_bar_code:
                 Log.e(TAG, "打印条码");
-//                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
-//                    new PrintThread(PrinterActivity.this, R.mipmap.bar_code_2).run();
-//                else {
-//                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
-//                }
                 index = R.mipmap.bar_code_2;
-
                 break;
 
             case R.id.btn_printer_qr_code:
                 Log.e(TAG, "打印二维码 ");
-//                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
-//                    new PrintThread(PrinterActivity.this, R.mipmap.pax_logo).run();
-//                else
-//                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
                 index = R.mipmap.pax_logo;
                 break;
 
             case R.id.btn_printer_black_square:
                 Log.e(TAG, "打印黑色块");
-//                if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
-//                    new PrintThread(PrinterActivity.this, R.mipmap.black_sp).run();
-//                else
-//                    ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
                 index = R.mipmap.black_sp;
                 break;
         }
 
         printBitmap(index);
+        //prnBitmap(index);
 
+    }
+
+    private void prnBitmap(int index) {
+        if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
+            new PrintThread(PrinterActivity.this, index).run();
+        else
+            ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
     }
 
     private void printBitmap(final int index) {
@@ -159,11 +159,11 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void run() {
                 try {
-                    printerManager = NewPrinterManager.getInstance(PrinterActivity.this);
+                    printerManager = PrintManager.getInstance(PrinterActivity.this);
                     printerManager.prnInit();
-                    printerManager.prnBytes(PrinterConstants.ESC_ALIGN_CENTER);
+                    //printerManager.prnBytes(PrinterConstants.ESC_ALIGN_CENTER);
                     printerManager.prnBitmap(BitmapFactory.decodeResource(getResources(), index));
-                    printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
+                    // printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
                     printerManager.prnStart();
                     printerManager.prnStartCut(1);
                     //printerManager.prnClose();

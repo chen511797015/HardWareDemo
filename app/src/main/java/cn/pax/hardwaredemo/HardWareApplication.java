@@ -3,7 +3,10 @@ package cn.pax.hardwaredemo;
 import android.app.Application;
 
 import com.orhanobut.logger.Logger;
+import com.pax.api.PrintException;
+import com.pax.api.PrintManager;
 
+import cn.pax.hardwaredemo.util.PrinterUtil;
 import cn.pax.hardwaredemo.util.ToastUtil;
 
 /**
@@ -28,12 +31,13 @@ public class HardWareApplication extends Application {
         ToastUtil.init(this);
         //PrinterUtil.getInstance(this).openUsb();
 
-        //使用新的jar
-//        try {
-//            PrintManager.getInstance(this);
-//        } catch (PrintException e) {
-//            e.printStackTrace();
-//        }
+        //初始化打印机
+        try {
+            PrintManager.getInstance(this);
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
