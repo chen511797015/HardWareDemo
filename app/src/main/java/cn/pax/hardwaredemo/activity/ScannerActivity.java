@@ -93,7 +93,8 @@ public class ScannerActivity extends BaseActivity {
                             printerManager = PrintManager.getInstance(ScannerActivity.this);
                             printerManager.prnInit();
                             printerManager.prnBytes(PrinterConstants.ESC_ALIGN_CENTER);
-                            printerManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.bar_code_2));
+                            //printerManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.bar_code_2));
+                            printerManager.prnBarCode("1234567890123");
                             printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
                             printerManager.prnStartCut(1);
                             printerManager.prnStart();
@@ -128,17 +129,14 @@ public class ScannerActivity extends BaseActivity {
 
 
     @Override
-    protected void onDestroy() {
-//        if (null != printerManager) {
-//            try {
-//                printerManager.closeUsbReceiver();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-        super.onDestroy();
+    protected void onResume() {
+        super.onResume();
+        try {
+            PrintManager.getInstance(getApplicationContext()).prnInit();
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
     }
-
 
     @Override
     protected void onPause() {

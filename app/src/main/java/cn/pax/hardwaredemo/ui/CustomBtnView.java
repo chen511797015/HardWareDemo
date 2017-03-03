@@ -13,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import java.util.Random;
+
 /**
  * Created by chendd on 2017/1/4.
  */
@@ -50,14 +52,14 @@ public class CustomBtnView extends RelativeLayout {
 
     private void initPaint() {
         mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.STROKE);
+        //mPaint.setStyle(Paint.Style.STROKE);//设置空心
+        mPaint.setStyle(Paint.Style.FILL);
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.parseColor("#808080"));
+        mPaint.setColor(Color.parseColor("#28c4a5"));
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mPaint.setStrokeWidth(1);
+        mPaint.setStrokeWidth(30);
     }
-
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -112,10 +114,39 @@ public class CustomBtnView extends RelativeLayout {
     @Override
     protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
-
         canvas.drawCircle(radiusX, radiusY, mRadius, mPaint);
 
     }
+
+
+    @Override
+    public boolean callOnClick() {
+        Log.e(TAG, "callOnClick: ");
+        mRadius = 0;
+        // 随机颜色
+        Random random = new Random();
+        int ranColor = 0xff000000 | random.nextInt(0x00ffffff);
+        mPaint.setColor(ranColor);
+        return super.callOnClick();
+    }
+
+    /**
+     * 获取十六进制的颜色代码.例如  "#6E36B4" , For HTML ,
+     *
+     * @return String
+     */
+    public static String getRandColorCode() {
+        String r, g, b;
+        Random random = new Random();
+        r = Integer.toHexString(random.nextInt(256)).toUpperCase();
+        g = Integer.toHexString(random.nextInt(256)).toUpperCase();
+        b = Integer.toHexString(random.nextInt(256)).toUpperCase();
+        r = r.length() == 1 ? "0" + r : r;
+        g = g.length() == 1 ? "0" + g : g;
+        b = b.length() == 1 ? "0" + b : b;
+        return r + g + b;
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -126,18 +157,24 @@ public class CustomBtnView extends RelativeLayout {
             radiusX = eventX;
             radiusY = eventY;
             ObjectAnimator a = ObjectAnimator.ofFloat("xx", "xx", 0, 1);
-            a.setDuration(1000);
+            a.setDuration(500);
             a.start();
             a.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float value = (float) valueAnimator.getAnimatedValue();
                     mRadius = mRadiusValue * value;
+                    if (mRadius == mRadiusValue) {
+                        Log.e(TAG, "onDraw: ");
+                        setClickable(true);
+                        callOnClick();
+                    } else {
+                        setClickable(false);
+                    }
                     invalidate();
                 }
             });
         }
-
         return super.onTouchEvent(event);
     }
 

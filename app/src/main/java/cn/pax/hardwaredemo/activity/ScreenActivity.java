@@ -215,7 +215,6 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
             super(outerContext, display);
         }
 
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-
+import com.journeyapps.barcodescanner.CameraPreview;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
+import com.journeyapps.barcodescanner.ViewfinderView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,8 +32,6 @@ public class CameraTestActivity extends BaseAppCompatActivity {
     DecoratedBarcodeView dbvCameraTest;
     @BindView(R.id.btn_camera_test_close)
     Button btnCameraTestClose;
-    @BindView(R.id.activity_camera_test)
-    RelativeLayout activityCameraTest;
 
 
     CaptureManager mCaptureManager;//捕捉管理器
@@ -56,6 +54,9 @@ public class CameraTestActivity extends BaseAppCompatActivity {
     protected void initView() {
 
         dbvCameraTest.setStatusText(getResources().getString(R.string.Please_put_the_QR_code_into_the_viewfinder));
+        ViewfinderView viewFinder = dbvCameraTest.getViewFinder();
+        viewFinder.setCameraPreview(new CameraPreview(this));
+        //barcodeView.setVisibility(View.GONE);
 
         //初始化捕获
         mCaptureManager = new CaptureManager(this, dbvCameraTest);
@@ -110,7 +111,8 @@ public class CameraTestActivity extends BaseAppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mCaptureManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @OnClick(R.id.m_rl_back)

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_camera_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1">
+    android:background="#f1f1f1"
+    android:orientation="vertical">
 
     <!--Camera Test-->
     <LinearLayout
@@ -30,25 +31,35 @@
             android:textSize="@dimen/sp30" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!--app:zxing_framing_rect_height="@dimen/dp300"-->
+        <!--app:zxing_framing_rect_width="@dimen/dp300"-->
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/dbv_camera_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:zxing_framing_rect_height="@dimen/dp1920"
+            app:zxing_framing_rect_width="@dimen/dp1080"
+            app:zxing_preview_scaling_strategy="fitXY"
+            app:zxing_use_texture_view="true">
+
+        </com.journeyapps.barcodescanner.DecoratedBarcodeView>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="@dimen/dp500"
         android:layout_height="@dimen/dp500"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <com.journeyapps.barcodescanner.DecoratedBarcodeView
-            android:id="@+id/dbv_camera_test"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:zxing_framing_rect_height="@dimen/dp300"
-            app:zxing_framing_rect_width="@dimen/dp300"
-            app:zxing_preview_scaling_strategy="fitXY"
-            app:zxing_use_texture_view="true">
-
-        </com.journeyapps.barcodescanner.DecoratedBarcodeView>
 
         <Button
             android:id="@+id/btn_camera_test_close"
@@ -65,4 +76,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

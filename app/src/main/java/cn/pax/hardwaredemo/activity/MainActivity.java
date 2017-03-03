@@ -1,5 +1,7 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -83,6 +85,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     int index = 0;
 
+    @SuppressLint("NewApi")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -142,6 +145,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
         startActivity(new Intent(MainActivity.this, mClass[index]));
+        //startActivity(new Intent(MainActivity.this, mClass[index]), ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+        //overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
     }
 
 }

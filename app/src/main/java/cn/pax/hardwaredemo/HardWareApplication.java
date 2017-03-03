@@ -33,7 +33,7 @@ public class HardWareApplication extends Application {
 
         //初始化打印机
         try {
-            PrintManager.getInstance(this);
+            PrintManager.getInstance(this).prnInit();
         } catch (PrintException e) {
             e.printStackTrace();
         }

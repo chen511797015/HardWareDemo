@@ -45,7 +45,7 @@ public class PrinterTestService extends Service {
             public void run() {
                 try {
                     PrintManager printManager = PrintManager.getInstance(getApplicationContext());
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                     printManager.prnInit();
                     //printManager.prnStr("print test ...", "GBK");
                     printManager.prnBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.white));
