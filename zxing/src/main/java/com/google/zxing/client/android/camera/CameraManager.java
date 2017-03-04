@@ -228,19 +228,20 @@ public final class CameraManager {
                 return null;
             }
 
-////            原始大小
+//            原始大小
 //            int width = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);//设定框框宽度大小
 //            int height = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);////设定框框高度大小
 //            int leftOffset = (screenResolution.x - width) / 2;//设定框框离左边相对位置
 //            int topOffset = (screenResolution.y - height) / 2;////设定框框离顶部相对位置
 //            framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
 
-            //修改之后
-            int width = screenResolution.x * 7 / 10;
+            //修改之后,适应各种屏幕的宽高
+            int width = screenResolution.y * 7 / 10;
             int height = screenResolution.y * 7 / 10;
 
+            //高度/3略显示拉伸了
             int leftOffset = (screenResolution.x - width) / 2;
-            int topOffset = (screenResolution.y - height) / 3;
+            int topOffset = (screenResolution.y - height) / 2;
             framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
 
             Log.e(TAG, "width: " + width + ",height:" + height);

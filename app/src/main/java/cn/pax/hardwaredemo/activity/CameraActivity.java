@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.zxing.client.android.CaptureActivity;
+import com.pax.api.PrintException;
+import com.pax.api.PrintManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -57,6 +59,7 @@ public class CameraActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "初始化Camera界面...");
         super.onCreate(savedInstanceState, R.layout.activity_camera);
+
     }
 
     @Override
@@ -143,10 +146,27 @@ public class CameraActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_camera_print:
-
-                new PrintThread(this, R.mipmap.pax_logo).run();
+                //new PrintThread(this, R.mipmap.pax_logo).run();
+                printQrCode();
                 break;
         }
+    }
+
+    /**
+     * 打印二维码
+     */
+    private void printQrCode() {
+        try {
+            PrintManager.getInstance(getApplicationContext()).prnInit();
+            PrintManager.getInstance(getApplicationContext()).prnQrCode("http://www.pax.com.cn/");
+            PrintManager.getInstance(getApplicationContext()).prnStartCut(1);
+            PrintManager.getInstance(getApplicationContext()).prnClose();
+
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @OnClick(R.id.m_rl_back)
