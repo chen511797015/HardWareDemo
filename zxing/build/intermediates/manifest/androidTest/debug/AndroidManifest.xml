@@ -21,7 +21,8 @@
     <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 修改系统信息 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />

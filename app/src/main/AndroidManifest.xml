@@ -17,6 +17,12 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
+    <!--修改系统信息-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-feature
+        android:name="android.permission.WRITE_SETTINGS"
+        android:required="true" />
+
 
     <!--android:theme="@style/AppTheme"-->
     <application

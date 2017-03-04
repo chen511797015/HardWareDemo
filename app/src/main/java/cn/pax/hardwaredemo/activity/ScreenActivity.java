@@ -1,11 +1,18 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Presentation;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.display.DisplayManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -135,16 +142,71 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
      * @param progress
      */
     private void changeAppBrightness(int progress) {
-        //通过Window对象来获取当前窗口
+        //通过Window对象来获取当前窗口,设置的是当前屏幕的亮度而不是系统屏幕的亮度
         Window mWindow = this.getWindow();
         WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
         if (progress == -1)
             mWindowAttributes.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
         else
             mWindowAttributes.screenBrightness = (progress <= 0 ? 1 : progress) / 255f;
-
         //设置当前亮度
         mWindow.setAttributes(mWindowAttributes);
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        /*
+         int checkSelfPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_SETTINGS);
+        Log.e(TAG, "checkSelfPermission: " + checkSelfPermission);
+        if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_SETTINGS}, 100100000);
+        }
+         */
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.e(TAG, "requestCode: " + requestCode);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Window mWindow = this.getWindow();
+        WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
+        //saveBrightness(this, (int) mWindowAttributes.screenBrightness);
+        Log.e(TAG, " mWindowAttributes.screenBrightness: " + mWindowAttributes.screenBrightness);
+    }
+
+    /**
+     * 保存系统亮度
+     *
+     * @param activity
+     * @param brightness
+     */
+    public void saveBrightness(Activity activity, int brightness) {
+        Uri uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+//        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightness);
+//        activity.getContentResolver().notifyChange(uri, null);
+
+        //保存为系统亮度方法1
+        android.provider.Settings.System.putInt(getContentResolver(),
+                android.provider.Settings.System.SCREEN_BRIGHTNESS,
+                brightness);
+        activity.getContentResolver().notifyChange(uri, null);
+        //保存为系统亮度方法2
+//        Uri uri = android.provider.Settings.System.getUriFor("screen_brightness");
+//        android.provider.Settings.System.putInt(getContentResolver(), "screen_brightness", brightness);
+//        // resolver.registerContentObserver(uri, true, myContentObserver);
+//        getContentResolver().notifyChange(uri, null);
+
     }
 
 
@@ -171,11 +233,15 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initDisplay() {
-        DisplayManager mDisplayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
-        Display[] mDisplays = mDisplayManager.getDisplays();
-        Log.e(TAG, "当前屏幕个数: " + mDisplays.length);
-        //0--主屏        1--副屏
-        mViceScreen = new ViceScreen(this, mDisplays[1]);
+        try {
+            DisplayManager mDisplayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
+            Display[] mDisplays = mDisplayManager.getDisplays();
+            Log.e(TAG, "当前屏幕个数: " + mDisplays.length);
+            //0--主屏        1--副屏
+            mViceScreen = new ViceScreen(this, mDisplays[1]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
