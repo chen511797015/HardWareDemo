@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import com.google.zxing.client.android.CaptureActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -94,11 +93,11 @@ public class CameraActivity extends BaseActivity {
     @OnClick(R.id.btn_camera_test)
     public void customScan() {
         Log.d(TAG, "启动二维码扫描...");
-        new IntentIntegrator(this)
-                .setOrientationLocked(false)
-                .setCaptureActivity(CameraTestActivity.class)
-                .initiateScan();//初始化扫描
-
+//        new IntentIntegrator(this)
+//                .setOrientationLocked(false)
+//                .setCaptureActivity(CameraTestActivity.class)
+//                .initiateScan();//初始化扫描
+        startActivityForResult(new Intent(CameraActivity.this, CaptureActivity.class), 10000);
     }
 
 
@@ -111,31 +110,31 @@ public class CameraActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult mIntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (mIntentResult != null) {
-            Log.e(TAG, "onActivityResult:... ");
-            if (mIntentResult.getContents() == null) {
-                ToastUtil.showToast(getResources().getString(R.string.Content_is_empty));
-                ivCameraShowQr.setImageResource(R.mipmap.camera_pic);
-                ivCameraShowQr.setVisibility(View.VISIBLE);
-                tv_camera_show.setVisibility(View.GONE);
-            } else {
-                //扫码返回值
-                String mScanResult = mIntentResult.getContents();
-
-                ivCameraShowQr.setVisibility(View.GONE);
-                tv_camera_show.setText(mScanResult);
-                tv_camera_show.setVisibility(View.VISIBLE);
-
-                //创建二维码
-                //bitmap = QrCodeUtil.getInstance().createBitmap(mScanResult, 250, 250);
-                //isBitmapChanged = true;
-                //mThread = new PrintQrCodeThread(bitmap);
-            }
-
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
+//        IntentResult mIntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if (mIntentResult != null) {
+//            Log.e(TAG, "onActivityResult:... ");
+//            if (mIntentResult.getContents() == null) {
+//                ToastUtil.showToast(getResources().getString(R.string.Content_is_empty));
+//                ivCameraShowQr.setImageResource(R.mipmap.camera_pic);
+//                ivCameraShowQr.setVisibility(View.VISIBLE);
+//                tv_camera_show.setVisibility(View.GONE);
+//            } else {
+//                //扫码返回值
+//                String mScanResult = mIntentResult.getContents();
+//
+//                ivCameraShowQr.setVisibility(View.GONE);
+//                tv_camera_show.setText(mScanResult);
+//                tv_camera_show.setVisibility(View.VISIBLE);
+//
+//                //创建二维码
+//                //bitmap = QrCodeUtil.getInstance().createBitmap(mScanResult, 250, 250);
+//                //isBitmapChanged = true;
+//                //mThread = new PrintQrCodeThread(bitmap);
+//            }
+//
+//        } else {
+        super.onActivityResult(requestCode, resultCode, data);
+//        }
 
     }
 

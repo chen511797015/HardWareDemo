@@ -7,9 +7,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by chendd on 2017/1/11.
@@ -43,8 +40,8 @@ public class QrCodeUtil {
 
         try {
             mBieMatrix = mMultiFormatWriter.encode(mCodeString, BarcodeFormat.QR_CODE, mWidth, mHeight);
-            BarcodeEncoder mEncoder = new BarcodeEncoder();
-            mBitmap = mEncoder.createBitmap(mBieMatrix);
+//            BarcodeEncoder mEncoder = new BarcodeEncoder();
+//            mBitmap = mEncoder.createBitmap(mBieMatrix);
             return mBitmap;
         } catch (WriterException e) {
             e.printStackTrace();

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\encode.xml",
+        "source": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\bundles\\debug\\res\\menu\\encode.xml"
+    },
+    {
+        "merged": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\capture.xml",
+        "source": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\bundles\\debug\\res\\menu\\capture.xml"
+    },
+    {
+        "merged": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\history.xml",
+        "source": "D:\\AndroidDemo\\HardWareDemo\\zxing\\build\\intermediates\\bundles\\debug\\res\\menu\\history.xml"
+    }
+]

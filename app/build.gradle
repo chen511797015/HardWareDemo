@@ -45,8 +45,9 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.google.zxing:core:3.2.1'
-    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+//    compile 'com.google.zxing:core:3.2.1'
+//    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/E810_PosApi_V1.0.jar')
+    compile project(':zxing')
 }
