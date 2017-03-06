@@ -4,7 +4,7 @@
 
     <!--长方形,30圆角,白底,灰边-->
 
-    <corners android:radius="30dp" />
+    <corners android:radius="@dimen/dp30" />
 
     <solid android:color="#ffffff" />
     <stroke

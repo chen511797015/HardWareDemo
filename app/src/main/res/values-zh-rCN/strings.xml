@@ -75,7 +75,14 @@
     <string name="Printer_Test">打印测试</string>
     <string name="print_QR_code">打印二维码</string>
     <string name="print_black_square">打印黑色块</string>
-
+    <string name="Printer_Setting">打印机设置</string>
+    <string name="Printer_Status">打印机状态</string>
+    <string name="Printer_Setting_Speed">打印机速度</string>
+    <string name="Printer_Setting_Gray">打印机浓度</string>
+    <string name="Select_Speed">选择的速度为：</string>
+    <string name="Select_Gray">选择的浓度为：</string>
+    <string name="Select_Printer_Speed">选择打印机速度</string>
+    <string name="Select_Printer_Gray">选择打印机浓度</string>
 
     <!--wifi界面-->
     <string name="WIFI_Signal">WIFI 信号</string>
@@ -120,6 +127,14 @@
     <string name="Ecos">Ecos</string>
     <string name="MAC">MAC</string>
     <string name="Agreement">协议</string>
+
+
+    <!--触摸测试-->
+    <string name="Touchpanel_Test">触摸测试</string>
+
+    <string name="Multi_touch">多点触控</string>
+    <string name="Signature_test">签名测试</string>
+    <string name="clear">清除</string>
 
 
 </resources>

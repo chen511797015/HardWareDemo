@@ -27,8 +27,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 

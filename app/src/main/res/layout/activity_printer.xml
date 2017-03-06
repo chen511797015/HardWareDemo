@@ -32,116 +32,52 @@
     </RelativeLayout>
 
 
-    <!--Printer Test-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
         android:orientation="vertical">
-
-        <TextView
+        <!--Printer Test-->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Printer_Test"
-            android:textSize="@dimen/sp30" />
-
-        <LinearLayout
-            android:layout_width="@dimen/dp900"
-            android:layout_height="@dimen/dp450"
-            android:background="@drawable/rectangle_corners_white_gray"
+            android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Printer_Test"
+                android:textSize="@dimen/sp30" />
 
-            <!--条码图片,二维码图片,全黑图片-->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="2"
-                android:orientation="horizontal">
+                android:layout_width="@dimen/dp900"
+                android:layout_height="@dimen/dp450"
+                android:background="@drawable/rectangle_corners_white_gray"
+                android:orientation="vertical">
 
-                <!--条码-->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.2">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:adjustViewBounds="true"
-                        android:src="@mipmap/bar_code_2" />
-                </RelativeLayout>
-
-                <!--二维码-->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:adjustViewBounds="true"
-                        android:src="@mipmap/pax_logo" />
-
-                </RelativeLayout>
-
-                <!--全黑-->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.2">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:adjustViewBounds="true"
-                        android:src="@mipmap/black_sp" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp2"
-                android:background="#e1e1e1"></View>
-
-            <!--条码打印,二维码打印,全黑打印-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
+                <!--条码图片,二维码图片,全黑图片-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
 
-                    <!--条码打印-->
+                    <!--条码-->
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.2">
 
-
-                        <Button
-                            android:id="@+id/btn_printer_bar_code"
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@null"
-                            android:drawableTop="@mipmap/btn_print"
-                            android:text="@string/print_bar_code"
-                            android:textAllCaps="false"
-                            android:textSize="@dimen/sp25" />
+                            android:adjustViewBounds="true"
+                            android:src="@mipmap/bar_code_2" />
                     </RelativeLayout>
-
 
                     <!--二维码-->
                     <RelativeLayout
@@ -149,17 +85,12 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
-
-                        <Button
-                            android:id="@+id/btn_printer_qr_code"
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@null"
-                            android:drawableTop="@mipmap/btn_print"
-                            android:text="@string/print_QR_code"
-                            android:textAllCaps="false"
-                            android:textSize="@dimen/sp25" />
+                            android:adjustViewBounds="true"
+                            android:src="@mipmap/pax_logo" />
 
                     </RelativeLayout>
 
@@ -169,23 +100,161 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1.2">
 
-
-                        <Button
-                            android:id="@+id/btn_printer_black_square"
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@null"
-                            android:drawableTop="@mipmap/btn_print"
-                            android:text="@string/print_black_square"
-                            android:textAllCaps="false"
-                            android:textSize="@dimen/sp25" />
+                            android:adjustViewBounds="true"
+                            android:src="@mipmap/black_sp" />
 
                     </RelativeLayout>
                 </LinearLayout>
 
-            </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp2"
+                    android:background="#e1e1e1"></View>
 
+                <!--条码打印,二维码打印,全黑打印-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!--条码打印-->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+
+                            <Button
+                                android:id="@+id/btn_printer_bar_code"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@null"
+                                android:drawableTop="@mipmap/btn_print"
+                                android:text="@string/print_bar_code"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/sp25" />
+                        </RelativeLayout>
+
+
+                        <!--二维码-->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+
+                            <Button
+                                android:id="@+id/btn_printer_qr_code"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@null"
+                                android:drawableTop="@mipmap/btn_print"
+                                android:text="@string/print_QR_code"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/sp25" />
+
+                        </RelativeLayout>
+
+                        <!--全黑-->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+
+                            <Button
+                                android:id="@+id/btn_printer_black_square"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@null"
+                                android:drawableTop="@mipmap/btn_print"
+                                android:text="@string/print_black_square"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/sp25" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp2"
+                    android:background="#e1e1e1"></View>
+
+                <LinearLayout
+
+                    android:layout_width="@dimen/dp900"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:orientation="horizontal">
+                    <!--Printer Status-->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/m_tv_printer_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/Printer_Status"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/sp25" />
+
+                    </RelativeLayout>
+                    <!--Printer Setting-->
+                    <RelativeLayout
+                        android:id="@+id/m_btn_printer_setting_speed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/Printer_Setting_Speed"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp25" />
+
+                    </RelativeLayout>
+                    <!--Printer Setting-->
+                    <RelativeLayout
+                        android:id="@+id/m_btn_printer_setting_gray"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/Printer_Setting_Gray"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp25" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
 

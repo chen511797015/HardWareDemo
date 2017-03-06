@@ -48,10 +48,10 @@
     </style>
 
     <!--<style name="activity_anim" parent="@android:style/Animation.Activity">-->
-        <!--<item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>-->
-        <!--<item name="android:activityOpenExitAnimation">@anim/out_to_left</item>-->
-        <!--<item name="android:activityCloseEnterAnimation">@anim/out_to_left</item>-->
-        <!--<item name="android:activityCloseExitAnimation">@anim/in_from_right</item>-->
+    <!--<item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>-->
+    <!--<item name="android:activityOpenExitAnimation">@anim/out_to_left</item>-->
+    <!--<item name="android:activityCloseEnterAnimation">@anim/out_to_left</item>-->
+    <!--<item name="android:activityCloseExitAnimation">@anim/in_from_right</item>-->
     <!--</style>-->
 
     <style name="activity_anim" parent="@android:style/Animation.Activity">
@@ -67,6 +67,23 @@
     <!--<item name="android:activityCloseEnterAnimation">@transition/slide</item>-->
     <!--<item name="android:activityCloseExitAnimation">@transition/slide</item>-->
     <!--</style>-->
+
+    <!--@android:Theme.DeviceDefault.Light.Dialog-->
+    <style name="AlertDialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <!-- 这里设置背景为透明，为了隐藏边框 -->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:windowBackground">@drawable/rectangle_corners_white_gray</item>-->
+        <!--<item name="android:background">@drawable/rectangle_corners_white_gray</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!-- 这里是修改顶部标题背景颜色，具体颜色自己定，可以是图片 -->
+        <!--<item name="android:topDark">@color/white</item>-->
+        <!-- 这里是修改内容区域背景颜色 -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:centerDark">@color/black</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+
+    </style>
 
 
 </resources>

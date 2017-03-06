@@ -31,7 +31,6 @@ public class TouchActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 设置成全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState, R.layout.activity_touch);
 
         // 设置为上面的MTView

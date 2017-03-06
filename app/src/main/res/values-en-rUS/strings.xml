@@ -78,7 +78,14 @@
     <string name="Printer_Test">Printer Test</string>
     <string name="print_QR_code">print QR code</string>
     <string name="print_black_square">print black square</string>
-
+    <string name="Printer_Setting">Printer Setting</string>
+    <string name="Printer_Status">Printer Status</string>
+    <string name="Printer_Setting_Speed">Printer Speed</string>
+    <string name="Printer_Setting_Gray">Printer Gray</string>
+    <string name="Select_Speed">Select speed: </string>
+    <string name="Select_Gray">Select gray: </string>
+    <string name="Select_Printer_Speed">Select printer speed</string>
+    <string name="Select_Printer_Gray">Select printer gray</string>
 
     <!--wifi界面-->
     <string name="WIFI_Signal">WIFI Signal</string>
@@ -123,5 +130,11 @@
     <string name="MAC">MAC</string>
     <string name="Agreement">Agreement</string>
 
+
+    <!--触摸测试-->
+    <string name="Touchpanel_Test">Touchpanel Test</string>
+    <string name="Multi_touch">Multi-touch</string>
+    <string name="Signature_test">Signature test</string>
+    <string name="clear">clear</string>
 
 </resources>

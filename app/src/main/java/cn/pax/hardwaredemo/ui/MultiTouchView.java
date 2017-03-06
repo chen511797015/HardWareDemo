@@ -50,6 +50,7 @@ public class MultiTouchView extends SurfaceView implements SurfaceHolder.Callbac
     public MultiTouchView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
+        START_TEXT = getResources().getString(R.string.Please_touch_screen_test);
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         setFocusable(true); // 确保我们的View能获得输入焦点
@@ -60,6 +61,7 @@ public class MultiTouchView extends SurfaceView implements SurfaceHolder.Callbac
     public MultiTouchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        START_TEXT = getResources().getString(R.string.Please_touch_screen_test);
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         setFocusable(true); // 确保我们的View能获得输入焦点
