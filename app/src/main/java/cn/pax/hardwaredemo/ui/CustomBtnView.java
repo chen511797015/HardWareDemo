@@ -55,7 +55,10 @@ public class CustomBtnView extends RelativeLayout {
         //mPaint.setStyle(Paint.Style.STROKE);//设置空心
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.parseColor("#28c4a5"));
+        //mPaint.setColor(Color.parseColor("#28c4a5"));
+        Random random = new Random();
+        int ranColor = 0xff000000 | random.nextInt(0x00ffffff);
+        mPaint.setColor(ranColor);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeWidth(30);

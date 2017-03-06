@@ -52,6 +52,8 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
     ViceScreen mViceScreen;
     RelativeLayout m_rl_back;
 
+    int progressLight = 225;
+
 
     @Override
 
@@ -78,7 +80,6 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
         sb_screen_brightness.setMax(255);
 
         m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
-
 
     }
 
@@ -120,6 +121,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {//是否是用户在调节
                     tv_screen_brightness.setText(progress + "");
+                    progressLight = progress;
                     changeAppBrightness(progress);
                 }
             }
@@ -148,7 +150,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
         if (progress == -1)
             mWindowAttributes.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
         else
-            mWindowAttributes.screenBrightness = (progress <= 0 ? 1 : progress) / 255f;
+            mWindowAttributes.screenBrightness = (progress <= 0 ? 0 : progress) / 255;
         //设置当前亮度
         mWindow.setAttributes(mWindowAttributes);
 
@@ -179,19 +181,17 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
     protected void onPause() {
         super.onPause();
 
-        Window mWindow = this.getWindow();
-        WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
         //saveBrightness(this, (int) mWindowAttributes.screenBrightness);
-        Log.e(TAG, " mWindowAttributes.screenBrightness: " + mWindowAttributes.screenBrightness);
+        Log.e(TAG, "progressLight: " + progressLight);
+        saveBrightness(progressLight);
     }
 
     /**
      * 保存系统亮度
      *
-     * @param activity
      * @param brightness
      */
-    public void saveBrightness(Activity activity, int brightness) {
+    public void saveBrightness(int brightness) {
         Uri uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
 //        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightness);
 //        activity.getContentResolver().notifyChange(uri, null);
@@ -200,7 +200,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
         android.provider.Settings.System.putInt(getContentResolver(),
                 android.provider.Settings.System.SCREEN_BRIGHTNESS,
                 brightness);
-        activity.getContentResolver().notifyChange(uri, null);
+        getContentResolver().notifyChange(uri, null);
         //保存为系统亮度方法2
 //        Uri uri = android.provider.Settings.System.getUriFor("screen_brightness");
 //        android.provider.Settings.System.putInt(getContentResolver(), "screen_brightness", brightness);

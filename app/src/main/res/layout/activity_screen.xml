@@ -397,7 +397,7 @@
 
                         <TextView
                             android:id="@+id/tv_screen_brightness"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/dp100"
                             android:layout_height="wrap_content"
                             android:text="120"
                             android:textColor="#ff00"
