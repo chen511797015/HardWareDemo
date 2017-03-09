@@ -136,5 +136,8 @@
     <string name="Signature_test">签名测试</string>
     <string name="clear">清除</string>
 
+    <string name="printer_connected">打印机已连接</string>
+    <string name="printer_disconnected">打印机已断开</string>
+
 
 </resources>

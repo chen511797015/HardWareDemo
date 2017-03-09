@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,9 @@ import android.widget.TextView;
 import com.pax.api.PrintException;
 import com.pax.api.PrintManager;
 import com.pax.api.ThreadPoolManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
@@ -40,9 +45,27 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
     TextView mTvPrinterStatus;//打印机状态
     RelativeLayout mBtnPrinterSettingSpeed;//打印机设置
     RelativeLayout mBtnPrinterSettingGray;
+    TextView m_tv_printer_status;//打印机状态
+    final int CHECK_TIME = 1000;
+    final int PRINTER_STATUS = 1;
+    Timer mTimer = null;
 
     int index = 0;
     private PrintManager printerManager = null;
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case PRINTER_STATUS:
+                    boolean status = (boolean) msg.obj;
+                    String printerStatus = status ? getResources().getString(R.string.printer_connected) : getResources().getString(R.string.printer_disconnected);
+                    m_tv_printer_status.setText(printerStatus);
+                    m_tv_printer_status.setTextColor(status ? getResources().getColor(R.color.result_points) : getResources().getColor(R.color.viewfinder_laser));
+                    break;
+            }
+        }
+    };
 
 
     @Override
@@ -61,6 +84,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
         mTvPrinterStatus = (TextView) findViewById(R.id.m_tv_printer_status);
         mBtnPrinterSettingGray = (RelativeLayout) findViewById(R.id.m_btn_printer_setting_gray);
         m_rl_back = (RelativeLayout) findViewById(R.id.m_rl_back);
+        m_tv_printer_status = (TextView) findViewById(R.id.m_tv_printer_status);
 
     }
 
@@ -93,16 +117,37 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
 
     }
 
+    //检测打印机连接状态
+    private void checkPrinterStatus() {
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    boolean status = PrintManager.getInstance(getApplicationContext()).prnStatus();
+                    Message msg = new Message();
+                    msg.what = PRINTER_STATUS;
+                    msg.obj = status;
+                    mHandler.sendMessage(msg);
+
+                } catch (PrintException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, CHECK_TIME, CHECK_TIME);
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         try {
             PrintManager.getInstance(getApplicationContext()).prnInit();
+
         } catch (PrintException e) {
             e.printStackTrace();
         }
-
-
+        checkPrinterStatus();
     }
 
     @Override
@@ -114,6 +159,11 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        if (null != mTimer) {
+            mTimer.cancel();
+            mTimer = null;
         }
 
     }
@@ -152,9 +202,6 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 break;
 
         }
-
-        //printBitmap(index);
-        //prnBitmap(index);
 
     }
 
@@ -229,7 +276,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                     printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
                     printerManager.prnStartCut(1);
                     printerManager.prnStart();
-                    printerManager.prnClose();
+                    //printerManager.prnClose();
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -250,20 +297,13 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                     printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
                     printerManager.prnStartCut(1);
                     printerManager.prnStart();
-                    printerManager.prnClose();
+                    //printerManager.prnClose();
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
-    }
-
-    private void prnBitmap(int index) {
-        if (PrinterUtil.getInstance(PrinterActivity.this).getUsbStatus())
-            new PrintThread(PrinterActivity.this, index).run();
-        else
-            ToastUtil.showToast(getResources().getString(R.string.Please_check_the_printer_status));
     }
 
     private void printBitmap(final int index) {
@@ -278,7 +318,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                     printerManager.prnBytes(PrinterConstants.ESC_ALIGN_LEFT);
                     printerManager.prnStartCut(1);
                     printerManager.prnStart();
-                    printerManager.prnClose();
+                    //printerManager.prnClose();
 
                 } catch (Exception e) {
                     e.printStackTrace();

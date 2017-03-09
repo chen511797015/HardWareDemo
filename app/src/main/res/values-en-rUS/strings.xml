@@ -137,4 +137,7 @@
     <string name="Signature_test">Signature test</string>
     <string name="clear">clear</string>
 
+    <string name="printer_connected">Printer connected</string>
+    <string name="printer_disconnected">Printer disconnected</string>
+
 </resources>

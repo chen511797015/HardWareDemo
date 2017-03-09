@@ -160,12 +160,30 @@ public class CameraActivity extends BaseActivity {
             PrintManager.getInstance(getApplicationContext()).prnInit();
             PrintManager.getInstance(getApplicationContext()).prnQrCode("http://www.pax.com.cn/");
             PrintManager.getInstance(getApplicationContext()).prnStartCut(1);
+            //PrintManager.getInstance(getApplicationContext()).prnClose();
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            PrintManager.getInstance(getApplicationContext()).prnInit();
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
             PrintManager.getInstance(getApplicationContext()).prnClose();
         } catch (PrintException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @OnClick(R.id.m_rl_back)
