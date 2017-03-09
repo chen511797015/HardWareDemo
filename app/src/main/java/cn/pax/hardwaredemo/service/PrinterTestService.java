@@ -8,19 +8,10 @@ import android.os.IBinder;
 import android.util.Log;
 
 
-import com.pax.api.NewPrinterManager;
 import com.pax.api.PrintManager;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.List;
 
 import cn.pax.hardwaredemo.R;
-import cn.pax.hardwaredemo.activity.ScannerActivity;
-import cn.pax.hardwaredemo.tool.PrintThread;
-import cn.pax.hardwaredemo.util.PrinterConstants;
-import cn.pax.hardwaredemo.util.PrinterUtil;
-import cn.pax.hardwaredemo.util.ToastUtil;
 
 
 /**

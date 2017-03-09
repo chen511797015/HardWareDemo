@@ -12,11 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.pax.api.NewPrinterManager;
 import com.pax.api.PrintException;
 import com.pax.api.PrintManager;
-import com.pax.api.PrintUtil;
-import com.pax.api.UsbAdmin;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;

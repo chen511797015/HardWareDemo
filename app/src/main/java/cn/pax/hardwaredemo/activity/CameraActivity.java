@@ -161,7 +161,6 @@ public class CameraActivity extends BaseActivity {
             PrintManager.getInstance(getApplicationContext()).prnQrCode("http://www.pax.com.cn/");
             PrintManager.getInstance(getApplicationContext()).prnStartCut(1);
             PrintManager.getInstance(getApplicationContext()).prnClose();
-
         } catch (PrintException e) {
             e.printStackTrace();
         }
@@ -174,6 +173,10 @@ public class CameraActivity extends BaseActivity {
         onBackPressed();
     }
 
+
+    /**
+     * 打印图片线程
+     */
     class PrintQrCodeThread extends Thread {
 
         Bitmap mBitmap;
@@ -194,7 +197,6 @@ public class CameraActivity extends BaseActivity {
                 //PrinterUtil.writeData(mContext, new byte[]{0x1b, 0x23, 0x23, 0x43, 0x54, 0x46, 0x44, (byte) 0x12c});//切刀前走纸距离,无效
                 //PrinterUtil.writeData(mContext, new byte[]{0x1d, 0x56, 0x60});
                 //PrinterUtil.writeData(mContext, new byte[]{0x1b, 0x23, 0x23, 0x41, 0x43, 0x46, 0x44, 0x00});打印切纸后走纸
-
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.e(TAG, "打印异常");

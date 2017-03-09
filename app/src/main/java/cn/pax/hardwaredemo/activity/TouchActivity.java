@@ -1,9 +1,12 @@
 package cn.pax.hardwaredemo.activity;
 
+import android.app.Presentation;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -13,6 +16,7 @@ import android.widget.ImageView;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.ui.MultiTouchView;
+import cn.pax.hardwaredemo.util.DisplayUtil;
 
 
 /**
@@ -23,6 +27,8 @@ public class TouchActivity extends BaseActivity {
 
     private static final String TAG = "TouchActivity";
     ImageView iv_touch_back;//触摸返回
+
+    TouchPresentation mTouch = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +66,23 @@ public class TouchActivity extends BaseActivity {
     @Override
     protected void init() {
         //startApk();
+
+        try {
+            Display displays = DisplayUtil.getDisplays(this);
+            mTouch = new TouchPresentation(this, displays);
+            mTouch.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (null != mTouch && mTouch.isShowing()) {
+            mTouch.dismiss();
+        }
+    }
 
     /**
      * 启动其他app
@@ -76,6 +97,29 @@ public class TouchActivity extends BaseActivity {
         } catch (Exception e) {
             e.printStackTrace();
             Log.e(TAG, "没有该app存在");
+        }
+    }
+
+
+    static class TouchPresentation extends Presentation {
+
+        public TouchPresentation(Context outerContext, Display display) {
+            super(outerContext, display);
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_touch);
+
+            ImageView iv = (ImageView) findViewById(R.id.iv_touch_back);
+
+            iv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
         }
     }
 }

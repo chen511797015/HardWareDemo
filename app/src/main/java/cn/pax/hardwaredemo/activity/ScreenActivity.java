@@ -29,6 +29,7 @@ import android.widget.ToggleButton;
 
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
+import cn.pax.hardwaredemo.util.DisplayUtil;
 
 public class ScreenActivity extends BaseActivity implements View.OnClickListener {
 
@@ -143,29 +144,23 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
      */
     private void changeAppBrightness(int progress) {
         //通过Window对象来获取当前窗口,设置的是当前屏幕的亮度而不是系统屏幕的亮度
-        Window mWindow = this.getWindow();
-        WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
-        if (progress == -1)
-            mWindowAttributes.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
-        else
-            mWindowAttributes.screenBrightness = (progress <= 0 ? 0 : progress) / 255;
-        //设置当前亮度
-        mWindow.setAttributes(mWindowAttributes);
+//        Window mWindow = this.getWindow();
+//        WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
+//        if (progress == -1)
+//            mWindowAttributes.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+//        else
+//            mWindowAttributes.screenBrightness = (progress <= 0 ? 0 : progress) / 255;
+//        //设置当前亮度
+//        mWindow.setAttributes(mWindowAttributes);
 
+        //保存为系统亮度
+        saveBrightness((progress <= 0 ? 0 : progress));
     }
-
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        /*
-         int checkSelfPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_SETTINGS);
-        Log.e(TAG, "checkSelfPermission: " + checkSelfPermission);
-        if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_SETTINGS}, 100100000);
-        }
-         */
+        initView();
 
     }
 
@@ -179,9 +174,8 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
     protected void onPause() {
         super.onPause();
 
-        //saveBrightness(this, (int) mWindowAttributes.screenBrightness);
         Log.e(TAG, "progressLight: " + progressLight);
-        saveBrightness(progressLight);
+        //saveBrightness(progressLight);
     }
 
     /**
@@ -232,11 +226,7 @@ public class ScreenActivity extends BaseActivity implements View.OnClickListener
 
     private void initDisplay() {
         try {
-            DisplayManager mDisplayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
-            Display[] mDisplays = mDisplayManager.getDisplays();
-            Log.e(TAG, "当前屏幕个数: " + mDisplays.length);
-            //0--主屏        1--副屏
-            mViceScreen = new ViceScreen(this, mDisplays[1]);
+            mViceScreen = new ViceScreen(this, DisplayUtil.getDisplays(this));
         } catch (Exception e) {
             e.printStackTrace();
         }

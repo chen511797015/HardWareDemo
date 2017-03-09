@@ -15,7 +15,6 @@ import com.pax.api.PrintException;
 import com.pax.api.PrintManager;
 import com.pax.api.ThreadPoolManager;
 
-import butterknife.BindView;
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.tool.PrintThread;
@@ -96,19 +95,19 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void onResume() {
-        Log.d(TAG, "onResume: ");
+        super.onResume();
         try {
             PrintManager.getInstance(getApplicationContext()).prnInit();
         } catch (PrintException e) {
             e.printStackTrace();
         }
 
-        super.onResume();
+
     }
 
     @Override
     protected void onPause() {
-        Log.d(TAG, "onPause: ");
+        super.onPause();
         if (null != printerManager) {
             try {
                 printerManager.prnClose();
@@ -116,12 +115,7 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 e.printStackTrace();
             }
         }
-        super.onPause();
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
@@ -183,10 +177,12 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 ToastUtil.showToast(getResources().getString(R.string.Select_Gray) + grays[which]);
                 try {
                     PrintManager.getInstance(getApplicationContext()).prnSetGray(Integer.parseInt(grays[which]));
+                    PrintManager.getInstance(getApplication()).prnBytes(com.pax.api.util.PrinterConstants.PRINT_PRINTER_GRAY_LEVEL);
                     PrintManager.getInstance(getApplicationContext()).prnStep(100);
                 } catch (PrintException e) {
                     e.printStackTrace();
                 }
+
             }
         });
         builder.show();
@@ -210,10 +206,12 @@ public class PrinterActivity extends BaseActivity implements View.OnClickListene
                 ToastUtil.showToast(getResources().getString(R.string.Select_Speed) + var[which]);
                 try {
                     PrintManager.getInstance(getApplicationContext()).prnPrintSpeed(Integer.parseInt(var[which]));
+                    PrintManager.getInstance(getApplication()).prnBytes(com.pax.api.util.PrinterConstants.PRINT_PRINTER_SPEED);
                     PrintManager.getInstance(getApplicationContext()).prnStep(100);
                 } catch (PrintException e) {
                     e.printStackTrace();
                 }
+
             }
         });
         builder.show();

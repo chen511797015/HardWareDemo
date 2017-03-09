@@ -40,7 +40,6 @@ public class SignatureActivity extends AppCompatActivity {
         initView();
 
         initDisplayView();
-
     }
 
     /**
@@ -62,7 +61,7 @@ public class SignatureActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (null != m) {
+        if (null != m && m.isShowing()) {
             m.dismiss();
         }
     }

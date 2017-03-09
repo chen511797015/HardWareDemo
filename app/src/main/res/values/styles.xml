@@ -44,6 +44,7 @@
     <!--activity切换动画-->
     <style name="Anim_fade" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/activity_anim</item>
     </style>
 
@@ -54,7 +55,7 @@
     <!--<item name="android:activityCloseExitAnimation">@anim/in_from_right</item>-->
     <!--</style>-->
 
-    <style name="activity_anim" parent="@android:style/Animation.Activity">
+    <style name="activity_anim" parent="@android:style/Animation.Toast">
         <item name="android:activityOpenEnterAnimation">@anim/enter_anim</item>
         <item name="android:activityOpenExitAnimation">@anim/exit_anim</item>
         <item name="android:activityCloseEnterAnimation">@anim/enter_anim</item>

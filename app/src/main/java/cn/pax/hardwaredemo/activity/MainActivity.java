@@ -1,6 +1,7 @@
 package cn.pax.hardwaredemo.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     Class[] mClass = {DeviceActivity.class,
             ScreenActivity.class,
-            TouchActivity.class,
+            TouchWindowActivity.class,
             PrinterActivity.class,
             ScannerActivity.class,
             CashBoxActivity.class,

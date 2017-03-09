@@ -1,6 +1,7 @@
 package cn.pax.hardwaredemo.activity;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -20,8 +21,6 @@ import cn.pax.hardwaredemo.base.BaseActivity;
 public class ScreenTestActivity extends BaseActivity {
 
     private static final String TAG = "ScreenTestActivity";
-
-
 
     View activity_screen_test;//背景颜色变化
     SeekBar sb_screen_test;//亮度进度条
@@ -95,6 +94,11 @@ public class ScreenTestActivity extends BaseActivity {
         sb_screen_test.setProgress(getSystemBrightness());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sb_screen_test.setProgress(getSystemBrightness());
+    }
 
     /**
      * 获取屏幕亮度
@@ -115,15 +119,20 @@ public class ScreenTestActivity extends BaseActivity {
      * @param progress
      */
     private void changeAppBrightness(int progress) {
-        //通过Window对象来获取当前窗口
-        Window mWindow = this.getWindow();
-        WindowManager.LayoutParams mWindowAttributes = mWindow.getAttributes();
-        if (progress == -1)
-            mWindowAttributes.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
-        else
-            mWindowAttributes.screenBrightness = (progress <= 0 ? 1 : progress) / 255f;
+        saveBrightness((progress <= 0 ? 1 : progress));
+    }
 
-        //设置当前亮度
-        mWindow.setAttributes(mWindowAttributes);
+    /**
+     * 保存系统亮度
+     *
+     * @param brightness
+     */
+    public void saveBrightness(int brightness) {
+        Uri uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+        android.provider.Settings.System.putInt(getContentResolver(),
+                android.provider.Settings.System.SCREEN_BRIGHTNESS,
+                brightness);
+        getContentResolver().notifyChange(uri, null);
+
     }
 }
