@@ -187,6 +187,9 @@
     @butterknife.* <methods>;
 }
 
+#jar包不混淆
+-keep class com.pax.api.** { *; }
+
 ######引用的其他Module可以直接在app的这个混淆文件里配置
 
 # 如果使用了Gson之类的工具要使被它解析的JavaBean类即实体类不被混淆。
@@ -209,4 +212,6 @@
 -keep class com.github.ksoichiro.** { *; }
 -keep interface com.github.ksoichiro.** { *; }
 -dontwarn com.github.ksoichiro.**
--libraryjars libs/*.jar
+#-libraryjars libs/*.jar
+-keep class com.google.zxing.client.android.** { *; }
+

@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.pax.api.PrintException;
+import com.pax.api.PrintManager;
+
 import cn.pax.hardwaredemo.R;
 import cn.pax.hardwaredemo.base.BaseActivity;
 import cn.pax.hardwaredemo.util.PrinterConstants;
@@ -21,7 +24,6 @@ import cn.pax.hardwaredemo.util.UsbAdmin;
 public class CashBoxActivity extends BaseActivity {
 
     private static final String TAG = "CashBoxActivity";
-
 
 
     Button btn_cash_box_open;// 打开钱箱
@@ -51,7 +53,13 @@ public class CashBoxActivity extends BaseActivity {
                 new Thread() {
                     @Override
                     public void run() {
-                        PrinterUtil.writeData(CashBoxActivity.this, PrinterConstants.OpenCashBox);
+                        //PrinterUtil.writeData(CashBoxActivity.this, PrinterConstants.OpenCashBox);
+                        try {
+                            PrintManager.getInstance(getApplication()).prnInit();
+                            PrintManager.getInstance(getApplication()).prnOpenCashBox();
+                        } catch (PrintException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }.start();
             }
@@ -79,4 +87,25 @@ public class CashBoxActivity extends BaseActivity {
 
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            PrintManager.getInstance(getApplication()).prnInit();
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            PrintManager.getInstance(getApplication()).prnClose();
+        } catch (PrintException e) {
+            e.printStackTrace();
+        }
+    }
 }
